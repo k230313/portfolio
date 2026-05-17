@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Adam&#39;s Portfolio</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Adam&#39;s Portfolio</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 11 Dec 2025 13:09:33 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Managing Users in Active Directory</title>
+      <link>http://localhost:1313/blogs/manage_users/</link>
+      <pubDate>Thu, 11 Dec 2025 13:09:33 +0000</pubDate>
+      <guid>http://localhost:1313/blogs/manage_users/</guid>
+      <description>Why Learn User Management in Active Directory Managing user accounts is one of the most essential responsibilities of a Windows Server administrator.&#xA;This guide walks through:&#xA;Creating a user First-time login on Windows 10 Resetting passwords Disabling and enabling accounts Deleting users and seeing the authentication outcome Each step includes screenshots for clear documentation and learning.&#xA;Note: This is a detailed post with many screenshots and multiple sections.&#xA;To navigate quickly, use your browser’s search function (Ctrl + F or Cmd + F) and look for keywords such as create, reset, enable, disable, or delete depending on the task you want to review.</description>
+    </item>
+    <item>
+      <title>Setting Up Active Directory Domain Services (AD DS) on Windows Server</title>
+      <link>http://localhost:1313/blogs/ad_ds/</link>
+      <pubDate>Thu, 11 Dec 2025 13:09:33 +0000</pubDate>
+      <guid>http://localhost:1313/blogs/ad_ds/</guid>
+      <description>Why Set Up Active Directory in a Lab Setting up Active Directory Domain Services (AD DS) in a virtualized environment is one of the best ways to learn Windows Server administration. This lab allows you to:&#xA;Practice domain creation and management. Understand authentication and centralized user administration. Connect a Windows 10 client to a domain. Prepare for more advanced topics like Group Policy, DNS, and user management. This setup uses a Windows Server VM as the Domain Controller (DC) and a Windows 10 VM as the domain client.</description>
+    </item>
+    <item>
+      <title>Installing Windows 10 Pro on VirtualBox</title>
+      <link>http://localhost:1313/blogs/win10/</link>
+      <pubDate>Thu, 11 Dec 2025 04:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blogs/win10/</guid>
+      <description>Why Install Windows 10 on a Virtual Machine Installing Windows 10 Pro on VirtualBox allows you to:&#xA;Safely test Windows features and settings without affecting your main PC. Experiment with different configurations. Step 1 — Download the Windows 10 ISO Visit the Microsoft Media Creation Tool. Click Download tool now to start creating the installation media. Choose Create installation media (USB flash drive, DVD, ISO) for another PC. Select your language, edition, and architecture.</description>
+    </item>
+    <item>
+      <title>Installing Windows Server on VirtualBox for a Lab</title>
+      <link>http://localhost:1313/blogs/winserver/</link>
+      <pubDate>Thu, 11 Dec 2025 04:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blogs/winserver/</guid>
+      <description>Why Install Windows Server on a Virtual Machine Installing Windows Server on VirtualBox allows you to:&#xA;Experiment with server administration in a safe environment. Test networking and domain features without affecting your main PC. Prepare a base server VM for future labs, such as Active Directory setups. Step 1 — Download and Install VirtualBox Go to the VirtualBox website and download the installer for Windows Hosts. Install VirtualBox on your PC following the installer prompts.</description>
+    </item>
+    <item>
+      <title>My First Homelab Setup</title>
+      <link>http://localhost:1313/blogs/homelab-setup/</link>
+      <pubDate>Fri, 05 Dec 2025 04:45:00 +0000</pubDate>
+      <guid>http://localhost:1313/blogs/homelab-setup/</guid>
+      <description>Why I Started a Homelab I&amp;rsquo;ve always wanted a personal environment to experiment with virtualization, networking, and different OS setups without affecting my main PC. A homelab gives me a sandbox to:&#xA;Learn server administration and networking. Test different operating systems and software safely. Explore remote access solutions like Tailscale. Keep costs low while having a manageable footprint at home. Buying My First Homelab Mini PC After researching options, I purchased a used HP EliteDesk Mini G3 800 from Facebook Marketplace for $150 AUD.</description>
+    </item>
+    <item>
+      <title>Image Gallery</title>
+      <link>http://localhost:1313/gallery/</link>
+      <pubDate>Sat, 25 Jun 2022 18:35:46 +0530</pubDate>
+      <guid>http://localhost:1313/gallery/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

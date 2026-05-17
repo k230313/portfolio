@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Networking on Adam&#39;s Portfolio</title>
+    <link>http://localhost:1313/tags/networking/</link>
+    <description>Recent content in Networking on Adam&#39;s Portfolio</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 05 Dec 2025 04:45:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/networking/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My First Homelab Setup</title>
+      <link>http://localhost:1313/blogs/homelab-setup/</link>
+      <pubDate>Fri, 05 Dec 2025 04:45:00 +0000</pubDate>
+      <guid>http://localhost:1313/blogs/homelab-setup/</guid>
+      <description>Why I Started a Homelab I&amp;rsquo;ve always wanted a personal environment to experiment with virtualization, networking, and different OS setups without affecting my main PC. A homelab gives me a sandbox to:&#xA;Learn server administration and networking. Test different operating systems and software safely. Explore remote access solutions like Tailscale. Keep costs low while having a manageable footprint at home. Buying My First Homelab Mini PC After researching options, I purchased a used HP EliteDesk Mini G3 800 from Facebook Marketplace for $150 AUD.</description>
+    </item>
+  </channel>
+</rss>

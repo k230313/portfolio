@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Active Directory on Adam&#39;s Portfolio</title>
+    <link>http://localhost:1313/tags/active-directory/</link>
+    <description>Recent content in Active Directory on Adam&#39;s Portfolio</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 11 Dec 2025 13:09:33 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/active-directory/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Managing Users in Active Directory</title>
+      <link>http://localhost:1313/blogs/manage_users/</link>
+      <pubDate>Thu, 11 Dec 2025 13:09:33 +0000</pubDate>
+      <guid>http://localhost:1313/blogs/manage_users/</guid>
+      <description>Why Learn User Management in Active Directory Managing user accounts is one of the most essential responsibilities of a Windows Server administrator.&#xA;This guide walks through:&#xA;Creating a user First-time login on Windows 10 Resetting passwords Disabling and enabling accounts Deleting users and seeing the authentication outcome Each step includes screenshots for clear documentation and learning.&#xA;Note: This is a detailed post with many screenshots and multiple sections.&#xA;To navigate quickly, use your browser’s search function (Ctrl + F or Cmd + F) and look for keywords such as create, reset, enable, disable, or delete depending on the task you want to review.</description>
+    </item>
+    <item>
+      <title>Setting Up Active Directory Domain Services (AD DS) on Windows Server</title>
+      <link>http://localhost:1313/blogs/ad_ds/</link>
+      <pubDate>Thu, 11 Dec 2025 13:09:33 +0000</pubDate>
+      <guid>http://localhost:1313/blogs/ad_ds/</guid>
+      <description>Why Set Up Active Directory in a Lab Setting up Active Directory Domain Services (AD DS) in a virtualized environment is one of the best ways to learn Windows Server administration. This lab allows you to:&#xA;Practice domain creation and management. Understand authentication and centralized user administration. Connect a Windows 10 client to a domain. Prepare for more advanced topics like Group Policy, DNS, and user management. This setup uses a Windows Server VM as the Domain Controller (DC) and a Windows 10 VM as the domain client.</description>
+    </item>
+  </channel>
+</rss>

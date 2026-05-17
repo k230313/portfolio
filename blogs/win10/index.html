@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
+<link rel="icon" href=/fav.png type="image/gif">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      media="print" onload="this.media='all'" />
+<noscript>
+  <link
+          href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+</noscript>
+
+
+<link rel="stylesheet" href="/css/font.css" media="all">
+
+
+
+<meta property="og:title" content="Installing Windows 10 Pro on VirtualBox" />
+<meta property="og:description" content="Step-by-step guide to installing Windows 10 Pro on VirtualBox." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/blogs/win10/" /><meta property="article:section" content="blogs" />
+<meta property="article:published_time" content="2025-12-11T04:00:00+00:00" />
+<meta property="article:modified_time" content="2025-12-11T04:00:00+00:00" /><meta property="og:site_name" content="Adam | IT &amp; Systems" />
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Installing Windows 10 Pro on VirtualBox"/>
+<meta name="twitter:description" content="Step-by-step guide to installing Windows 10 Pro on VirtualBox."/>
+
+
+<link rel="stylesheet" href="/bootstrap-5/css/bootstrap.min.css" media="all"><link rel="stylesheet" href="/css/header.css" media="all">
+<link rel="stylesheet" href="/css/footer.css" media="all">
+
+
+<link rel="stylesheet" href="/css/theme.css" media="all">
+
+<style>
+    :root {
+        --text-color: #343a40;
+        --text-secondary-color: #6c757d;
+        --text-link-color: #007bff;
+        --background-color: #eaedf0;
+        --secondary-background-color: #64ffda1a;
+        --primary-color: #007bff;
+        --secondary-color: #f8f9fa;
+
+         
+        --text-color-dark: #e4e6eb;
+        --text-secondary-color-dark: #b0b3b8;
+        --text-link-color-dark: #ffffff;
+        --background-color-dark: #18191a;
+        --secondary-background-color-dark: #212529;
+        --primary-color-dark: #ffffff;
+        --secondary-color-dark: #212529;
+    }
+    body {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        text-align: left;
+    }
+
+    html {
+        background-color: var(--background-color) !important;
+    }
+
+    body::-webkit-scrollbar {
+        height: 0px;
+        width: 8px;
+        background-color: var(--background-color);
+    }
+
+    ::-webkit-scrollbar-track {
+        border-radius: 1rem;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 1rem;
+        background: #b0b0b0;
+        outline: 1px solid var(--background-color);
+    }
+
+    #search-content::-webkit-scrollbar {
+        width: .5em;
+        height: .1em;
+        background-color: var(--background-color);
+    }
+</style>
+
+
+
+<meta name="description" content="Step-by-step guide to installing Windows 10 Pro on VirtualBox.">
+<link rel="stylesheet" href="/css/single.css">
+
+
+<script defer src="/fontawesome-6/all-6.4.2.js"></script>
+
+
+  
+  
+
+  <title>
+Installing Windows 10 Pro on VirtualBox | Adam&#39;s Portfolio
+
+  </title>
+</head>
+
+<body class="light">
+  
+  
+<script>
+    let localStorageValue = localStorage.getItem("pref-theme");
+    let mediaQuery = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    switch (localStorageValue) {
+        case "dark":
+            document.documentElement.classList.add('dark');
+            document.body.classList.add('dark');
+            break;
+        case "light":
+            document.body.classList.remove('dark');
+            document.documentElement.classList.remove('dark');
+            break;
+        default:
+            if (mediaQuery) {
+                document.documentElement.classList.add('dark');
+                document.body.classList.add('dark');
+            }
+            break;
+    }
+</script>
+
+
+
+
+<script>
+    var prevScrollPos = window.pageYOffset;
+    window.addEventListener("scroll", function showHeaderOnScroll() {
+        let profileHeaderElem = document.getElementById("profileHeader");
+        let currentScrollPos = window.pageYOffset;
+        let resetHeaderStyle = false;
+        let showNavBarOnScrollUp =  true ;
+        let showNavBar = showNavBarOnScrollUp ? prevScrollPos > currentScrollPos : currentScrollPos > 0;
+        if (showNavBar) {
+            profileHeaderElem.classList.add("showHeaderOnTop");
+        } else {
+            resetHeaderStyle = true;
+        }
+        if(currentScrollPos === 0) {
+            resetHeaderStyle = true;
+        }
+        if(resetHeaderStyle) {
+            profileHeaderElem.classList.remove("showHeaderOnTop");
+        }
+        prevScrollPos = currentScrollPos;
+    });
+</script>
+
+
+
+<header id="profileHeader">
+    <nav class="pt-3 navbar navbar-expand-lg animate">
+        <div class="container-fluid mx-xs-2 mx-sm-5 mx-md-5 mx-lg-5">
+            
+            <a class="navbar-brand primary-font text-wrap" href="/">
+                
+                <img src="/fav.png" width="30" height="30"
+                    class="d-inline-block align-top">
+                Adam&#39;s Portfolio
+                
+            </a>
+
+            
+                <div>
+                    <input id="search" autocomplete="off" class="form-control mr-sm-2 d-none d-md-block" placeholder='Ctrl &#43; k to Search...'
+                        aria-label="Search" oninput="searchOnChange(event)">
+                </div>
+            
+
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true">
+                    <path fill-rule="evenodd" d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z"></path>
+                </svg>
+            </button>
+
+            
+            <div class="collapse navbar-collapse text-wrap primary-font" id="navbarContent">
+                <ul class="navbar-nav ms-auto text-center">
+                    
+                        <li class="nav-item navbar-text d-block d-md-none">
+                            <div class="nav-link">
+                                <input id="search" autocomplete="off" class="form-control mr-sm-2" placeholder='Ctrl &#43; k to Search...' aria-label="Search" oninput="searchOnChange(event)">
+                            </div>
+                        </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#about" aria-label="about">
+                            About Me
+                        </a>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#experience"
+                            aria-label="experience">
+                            Experience
+                        </a>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#education"
+                            aria-label="education">
+                            Education
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#achievements"
+                            aria-label="achievements">
+                            Certifications
+                        </a>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#contact"
+                            aria-label="contact">
+                            Contact
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/blogs" title="My Projects">
+                            
+                            Projects
+                        </a>
+                    </li>
+                    
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        
+                        <div class="text-center">
+                            <button id="theme-toggle">
+                                <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                </svg>
+                                <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="5"></circle>
+                                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </li>
+                    
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</header>
+<div id="content">
+<section id="single">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-12 col-lg-9">
+        <div class="pr-lg-4">
+          <div class="title mb-5">
+            <h1 class="text-center mb-4">Installing Windows 10 Pro on VirtualBox</h1>
+            <div class="text-center">
+              
+                Adamson Buliboli
+                <small>|</small>
+              
+              Dec 11, 2025
+
+              
+              <span id="readingTime">
+                min read
+              </span>
+              
+            </div>
+          </div>
+          
+          <div class="featured-image">
+            <img class="img-fluid mx-auto d-block" src="/images/Win10/31.png" alt="Installing Windows 10 Pro on VirtualBox">
+          </div>
+          
+          <article class="page-content  p-2">
+          <h2 id="why-install-windows-10-on-a-virtual-machine">Why Install Windows 10 on a Virtual Machine</h2>
+<p>Installing Windows 10 Pro on VirtualBox allows you to:</p>
+<ul>
+<li>Safely test Windows features and settings without affecting your main PC.</li>
+<li>Experiment with different configurations.</li>
+</ul>
+<hr>
+<h2 id="step-1--download-the-windows-10-iso">Step 1 — Download the Windows 10 ISO</h2>
+<ol>
+<li>Visit the <a href="https://www.microsoft.com/software-download/windows10">Microsoft Media Creation Tool</a>.</li>
+<li>Click <strong>Download tool now</strong> to start creating the installation media.</li>
+</ol>
+<p><img src="/images/Win10/1.png" alt="Download Windows 10 Media"></p>
+<ol start="3">
+<li>Choose <strong>Create installation media (USB flash drive, DVD, ISO) for another PC</strong>.</li>
+</ol>
+<p><img src="/images/Win10/2.png" alt="Create Installation Media"></p>
+<ol start="4">
+<li>Select your <strong>language, edition, and architecture</strong>.</li>
+</ol>
+<p><img src="/images/Win10/3.png" alt="Select Language and Architecture"></p>
+<ol start="5">
+<li>Choose <strong>ISO file</strong> as the media.</li>
+</ol>
+<p><img src="/images/Win10/4.png" alt="Choose Media ISO"></p>
+<ol start="6">
+<li>Save the ISO to a folder on your PC.</li>
+</ol>
+<p><img src="/images/Win10/5.png" alt="Save ISO File"></p>
+<ol start="7">
+<li>Wait for the download to complete.</li>
+</ol>
+<p><img src="/images/Win10/6.png" alt="Downloading ISO"></p>
+<ol start="8">
+<li>Click <strong>Finish</strong> once the ISO is ready.</li>
+</ol>
+<p><img src="/images/Win10/7.png" alt="Finish Setup Media"></p>
+<ol start="9">
+<li>Verify the ISO file is saved correctly (e.g., <code>Windows.iso</code>).</li>
+</ol>
+<p><img src="/images/Win10/8.png" alt="ISO Saved"></p>
+<hr>
+<h2 id="step-2--create-a-new-virtual-machine-in-virtualbox">Step 2 — Create a New Virtual Machine in VirtualBox</h2>
+<ol>
+<li>Open <strong>VirtualBox</strong> and click <strong>New</strong>.</li>
+</ol>
+<p><img src="/images/Win10/9.png" alt="Create New VM in VirtualBox"></p>
+<ol start="2">
+<li>Name your VM (e.g., <code>CLIENT01</code>), select <strong>Microsoft Windows</strong>, version <strong>Windows 10 (64-bit)</strong>.</li>
+<li>Allocate <strong>RAM</strong> (4 GB recommended) and <strong>virtual disk</strong> (40–60 GB, dynamically allocated).</li>
+<li>Select the ISO you downloaded as the boot disk.</li>
+</ol>
+<p><img src="/images/Win10/10.png" alt="Select ISO Image"></p>
+<ol start="5">
+<li>Confirm the VM creation and specs.</li>
+</ol>
+<p><img src="/images/Win10/11.png" alt="Completed VM Specs"></p>
+<hr>
+<h2 id="step-3--install-windows-10">Step 3 — Install Windows 10</h2>
+<ol>
+<li>Start the VM → Windows setup will launch.</li>
+<li>Select <strong>language, time, and keyboard</strong> → Next.</li>
+</ol>
+<p><img src="/images/Win10/12.png" alt="Windows Setup - Language"></p>
+<ol start="3">
+<li>Click <strong>Install Now</strong>.</li>
+</ol>
+<p><img src="/images/Win10/13.png" alt="Install Now"></p>
+<ol start="4">
+<li>Choose <strong>I don’t have a product key</strong> for lab testing.</li>
+</ol>
+<p><img src="/images/Win10/14.png" alt="I Don&rsquo;t Have a Product Key"></p>
+<ol start="5">
+<li>Select <strong>Windows 10 Pro x64</strong>.</li>
+</ol>
+<p><img src="/images/Win10/15.png" alt="Select Windows 10 Pro x64"></p>
+<ol start="6">
+<li>Accept license terms → Next.</li>
+</ol>
+<p><img src="/images/Win10/16.png" alt="Accept License Terms"></p>
+<ol start="7">
+<li>Select <strong>Custom: Install Windows only (advanced)</strong>.</li>
+</ol>
+<p><img src="/images/Win10/17.png" alt="Custom Install"></p>
+<ol start="8">
+<li>Create a new partition → Apply → OK.</li>
+</ol>
+<p><img src="/images/Win10/18.png" alt="Create New Partition">
+<img src="/images/Win10/19.png" alt="Windows Features Confirmation"></p>
+<ol start="9">
+<li>Select the correct partition → Next.</li>
+</ol>
+<p><img src="/images/Win10/20.png" alt="Select Partition"></p>
+<ol start="10">
+<li>Windows installation will begin.</li>
+</ol>
+<p><img src="/images/Win10/21.png" alt="Installing Windows">
+<img src="/images/Win10/22.png" alt="Getting Windows Ready"></p>
+<hr>
+<h2 id="step-4--configure-windows-10">Step 4 — Configure Windows 10</h2>
+<ol>
+<li>Select your <strong>region</strong>.</li>
+</ol>
+<p><img src="/images/Win10/23.png" alt="Select Region"></p>
+<ol start="2">
+<li>Choose <strong>I don’t have internet</strong> (host-only lab setup).<br>
+<em>(If you want internet, select NAT instead.)</em></li>
+</ol>
+<p><img src="/images/Win10/24.png" alt="No Internet"></p>
+<ol start="3">
+<li>Continue with <strong>limited setup</strong>.</li>
+</ol>
+<p><img src="/images/Win10/25.png" alt="Limited Setup"></p>
+<ol start="4">
+<li>Enter the <strong>username</strong> (e.g., <code>User01</code>) for the local account.</li>
+</ol>
+<p><img src="/images/Win10/26.png" alt="Who&rsquo;s Going to Use this PC"></p>
+<ol start="5">
+<li>Turn off all <strong>privacy settings</strong> → Accept.</li>
+</ol>
+<p><img src="/images/Win10/27.png" alt="Privacy Settings"></p>
+<ol start="6">
+<li>Skip <strong>Cortana</strong> setup → Not now.</li>
+</ol>
+<p><img src="/images/Win10/28.png" alt="Cortana Setup"></p>
+<ol start="7">
+<li>Windows prepares your environment.</li>
+</ol>
+<p><img src="/images/Win10/29.png" alt="Getting Everything Ready">
+<img src="/images/Win10/30.png" alt="This Might Take Several Minutes"></p>
+<ol start="8">
+<li>Finally, you’ll reach the <strong>Windows 10 desktop</strong>.</li>
+</ol>
+<p><img src="/images/Win10/31.png" alt="Windows 10 Desktop"></p>
+<hr>
+<h2 id="conclusion">Conclusion</h2>
+<p>You now have a fully installed <strong>Windows 10 Pro VM</strong> in VirtualBox. The VM can be used to:</p>
+<ul>
+<li>Test Windows features and settings in a safe environment.</li>
+<li>Install and experiment with applications without affecting your main PC.</li>
+<li>Learn and practice Windows configuration and troubleshooting.</li>
+</ul>
+<p>This VM also serves as a template for creating <strong>additional Windows VMs</strong> for testing,</p>
+
+          </article>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-3">
+        <div id="stickySideBar" class="sticky-sidebar">
+          
+          <aside class="toc">
+              <h5>
+                Table Of Contents
+              </h5>
+              <div class="toc-content">
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#why-install-windows-10-on-a-virtual-machine">Why Install Windows 10 on a Virtual Machine</a></li>
+    <li><a href="#step-1--download-the-windows-10-iso">Step 1 — Download the Windows 10 ISO</a></li>
+    <li><a href="#step-2--create-a-new-virtual-machine-in-virtualbox">Step 2 — Create a New Virtual Machine in VirtualBox</a></li>
+    <li><a href="#step-3--install-windows-10">Step 3 — Install Windows 10</a></li>
+    <li><a href="#step-4--configure-windows-10">Step 4 — Configure Windows 10</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+              </div>
+          </aside>
+          
+
+          
+          <aside class="tags">
+            <h5>Tags</h5>
+            <ul class="tags-ul list-unstyled list-inline">
+              
+              <li class="list-inline-item"><a href="http://localhost:1313/tags/homelab"
+                target="_blank"
+              >Homelab</a></li>
+              
+              <li class="list-inline-item"><a href="http://localhost:1313/tags/virtualbox"
+                target="_blank"
+              >VirtualBox</a></li>
+              
+              <li class="list-inline-item"><a href="http://localhost:1313/tags/windows-10"
+                target="_blank"
+              >Windows 10</a></li>
+              
+              <li class="list-inline-item"><a href="http://localhost:1313/tags/lab-setup"
+                target="_blank"
+              >Lab Setup</a></li>
+              
+            </ul>
+          </aside>
+          
+
+          
+          <aside class="social">
+            <h5>Social</h5>
+            <div class="social-content">
+              <ul class="list-inline">
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href="https://www.linkedin.com/feed/?shareActive=true&text=Step-by-step%20guide%20to%20installing%20Windows%2010%20Pro%20on%20VirtualBox. https%3a%2f%2fadamsonb.comhttp%3a%2f%2flocalhost%3a1313%2fblogs%2fwin10%2f">
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href='https://twitter.com/share?text=Installing%20Windows%2010%20Pro%20on%20VirtualBox&url=https%3a%2f%2fadamsonb.comhttp%3a%2f%2flocalhost%3a1313%2fblogs%2fwin10%2f&hashtags=Homelab%2cVirtualBox%2cWindows%2010%2cLab%20Setup'>
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href="https://api.whatsapp.com/send?text=Installing%20Windows%2010%20Pro%20on%20VirtualBox: https%3a%2f%2fadamsonb.comhttp%3a%2f%2flocalhost%3a1313%2fblogs%2fwin10%2f">
+                    <i class="fab fa-whatsapp"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href='mailto:?subject=Installing%20Windows%2010%20Pro%20on%20VirtualBox&amp;body=Check%20out%20this%20site https%3a%2f%2fadamsonb.comhttp%3a%2f%2flocalhost%3a1313%2fblogs%2fwin10%2f'>
+                    <i class="fa fa-envelope"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </aside>
+          
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-9 p-4">
+        
+      </div>
+    </div>
+  </div>
+  <button class="p-2 px-3" onclick="topFunction()" id="topScroll">
+    <i class="fas fa-angle-up"></i>
+  </button>
+</section>
+
+
+<div class="progress">
+  <div id="scroll-progress-bar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<Script src="/js/scrollProgressBar.js"></script>
+
+
+<script>
+  var topScroll = document.getElementById("topScroll");
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      topScroll.style.display = "block";
+    } else {
+      topScroll.style.display = "none";
+    }
+  }
+
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
+  
+  let stickySideBarElem = document.getElementById("stickySideBar");
+  let stickyNavBar =  true ;
+  if(stickyNavBar) {
+    let headerElem = document.getElementById("profileHeader");
+    let headerHeight = headerElem.offsetHeight + 15;
+    stickySideBarElem.style.top = headerHeight + "px";
+  } else {
+    stickySideBarElem.style.top = "50px";
+  }
+</script>
+
+
+<script src="/js/readingTime.js"></script>
+
+
+
+  </div><footer>
+    
+ 
+
+<div class="text-center pt-2">
+    
+    <span class="px-1">
+        <a href="https://github.com/adamsonb" target="_blank" aria-label="github">
+            <svg xmlns="http://www.w3.org/2000/svg" width="2.7em" height="2.7em" viewBox="0 0 1792 1792">
+                <path id="footer-socialNetworks-github-svg-path"
+                    d="M522 1352q-8 9-20-3-13-11-4-19 8-9 20 3 12 11 4 19zm-42-61q9 12 0 19-8 6-17-7t0-18q9-7 17 6zm-61-60q-5 7-13 2-10-5-7-12 3-5 13-2 10 5 7 12zm31 34q-6 7-16-3-9-11-2-16 6-6 16 3 9 11 2 16zm129 112q-4 12-19 6-17-4-13-15t19-7q16 5 13 16zm63 5q0 11-16 11-17 2-17-11 0-11 16-11 17-2 17 11zm58-10q2 10-14 14t-18-8 14-15q16-2 18 9zm964-956v960q0 119-84.5 203.5t-203.5 84.5h-224q-16 0-24.5-1t-19.5-5-16-14.5-5-27.5v-239q0-97-52-142 57-6 102.5-18t94-39 81-66.5 53-105 20.5-150.5q0-121-79-206 37-91-8-204-28-9-81 11t-92 44l-38 24q-93-26-192-26t-192 26q-16-11-42.5-27t-83.5-38.5-86-13.5q-44 113-7 204-79 85-79 206 0 85 20.5 150t52.5 105 80.5 67 94 39 102.5 18q-40 36-49 103-21 10-45 15t-57 5-65.5-21.5-55.5-62.5q-19-32-48.5-52t-49.5-24l-20-3q-21 0-29 4.5t-5 11.5 9 14 13 12l7 5q22 10 43.5 38t31.5 51l10 23q13 38 44 61.5t67 30 69.5 7 55.5-3.5l23-4q0 38 .5 103t.5 68q0 22-11 33.5t-22 13-33 1.5h-224q-119 0-203.5-84.5t-84.5-203.5v-960q0-119 84.5-203.5t203.5-84.5h960q119 0 203.5 84.5t84.5 203.5z" />
+
+                <metadata>
+                    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                        xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+                        <rdf:Description about="https://iconscout.com/legal#licenses"
+                            dc:title="Github, Online, Project, Hosting, Square"
+                            dc:description="Github, Online, Project, Hosting, Square" dc:publisher="Iconscout"
+                            dc:date="2016-12-14" dc:format="image/svg+xml" dc:language="en">
+                            <dc:creator>
+                                <rdf:Bag>
+                                    <rdf:li>Font Awesome</rdf:li>
+                                </rdf:Bag>
+                            </dc:creator>
+                        </rdf:Description>
+                    </rdf:RDF>
+                </metadata>
+            </svg>
+        </a>
+    </span>
+    
+
+    
+    <span class="px-1">
+        <a href="https://www.linkedin.com/in/adamsonb/" target="_blank" aria-label="linkedin">
+            <svg xmlns="http://www.w3.org/2000/svg" width='2.4em' height='2.4em' fill="#fff" aria-label="LinkedIn"
+                viewBox="0 0 512 512">
+                <rect width="512" height="512" fill="#0077b5" rx="15%" />
+                <circle cx="142" cy="138" r="37" />
+                <path stroke="#fff" stroke-width="66" d="M244 194v198M142 194v198" />
+                <path d="M276 282c0-20 13-40 36-40 24 0 33 18 33 45v105h66V279c0-61-32-89-76-89-34 0-51 19-59 32" />
+            </svg>
+        </a>
+    </span>
+    
+
+    
+
+    
+    <a href="https://www.instagram.com/a_damn.son/" target="_blank" aria-label="instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48px" height="48px">
+            <radialGradient id="yOrnnhliCrdS2gy~4tD8ma" cx="19.38" cy="42.035" r="44.899"
+                gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#fd5" />
+                <stop offset=".328" stop-color="#ff543f" />
+                <stop offset=".348" stop-color="#fc5245" />
+                <stop offset=".504" stop-color="#e64771" />
+                <stop offset=".643" stop-color="#d53e91" />
+                <stop offset=".761" stop-color="#cc39a4" />
+                <stop offset=".841" stop-color="#c837ab" />
+            </radialGradient>
+            <path fill="url(#yOrnnhliCrdS2gy~4tD8ma)"
+                d="M34.017,41.99l-20,0.019c-4.4,0.004-8.003-3.592-8.008-7.992l-0.019-20	c-0.004-4.4,3.592-8.003,7.992-8.008l20-0.019c4.4-0.004,8.003,3.592,8.008,7.992l0.019,20	C42.014,38.383,38.417,41.986,34.017,41.99z" />
+            <radialGradient id="yOrnnhliCrdS2gy~4tD8mb" cx="11.786" cy="5.54" r="29.813"
+                gradientTransform="matrix(1 0 0 .6663 0 1.849)" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#4168c9" />
+                <stop offset=".999" stop-color="#4168c9" stop-opacity="0" />
+            </radialGradient>
+            <path fill="url(#yOrnnhliCrdS2gy~4tD8mb)"
+                d="M34.017,41.99l-20,0.019c-4.4,0.004-8.003-3.592-8.008-7.992l-0.019-20	c-0.004-4.4,3.592-8.003,7.992-8.008l20-0.019c4.4-0.004,8.003,3.592,8.008,7.992l0.019,20	C42.014,38.383,38.417,41.986,34.017,41.99z" />
+            <path fill="#fff"
+                d="M24,31c-3.859,0-7-3.14-7-7s3.141-7,7-7s7,3.14,7,7S27.859,31,24,31z M24,19c-2.757,0-5,2.243-5,5	s2.243,5,5,5s5-2.243,5-5S26.757,19,24,19z" />
+            <circle cx="31.5" cy="16.5" r="1.5" fill="#fff" />
+            <path fill="#fff"
+                d="M30,37H18c-3.859,0-7-3.14-7-7V18c0-3.86,3.141-7,7-7h12c3.859,0,7,3.14,7,7v12	C37,33.86,33.859,37,30,37z M18,13c-2.757,0-5,2.243-5,5v12c0,2.757,2.243,5,5,5h12c2.757,0,5-2.243,5-5V18c0-2.757-2.243-5-5-5H18z" />
+        </svg>
+    </a>
+    
+
+    
+    <a href="https://www.facebook.com/adamson.794209" target="_blank" aria-label="facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48px" height="48px">
+            <path fill="#3F51B5"
+                d="M42,37c0,2.762-2.238,5-5,5H11c-2.761,0-5-2.238-5-5V11c0-2.762,2.239-5,5-5h26c2.762,0,5,2.238,5,5V37z" />
+            <path fill="#FFF"
+                d="M34.368,25H31v13h-5V25h-3v-4h3v-2.41c0.002-3.508,1.459-5.59,5.592-5.59H35v4h-2.287C31.104,17,31,17.6,31,18.723V21h4L34.368,25z" />
+        </svg>
+    </a>
+    
+</div>
+    
+
+</footer><script src="/bootstrap-5/js/bootstrap.bundle.min.js"></script>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.documentElement.classList.add('dark');
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+        document.documentElement.classList.remove('dark');
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.classList.add('dark');
+        document.body.classList.add('dark');
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            document.documentElement.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+
+</script>
+
+
+    <script src="/js/search.js"></script>
+
+
+
+
+
+
+
+
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C5FECCG59Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-C5FECCG59Z');
+</script>
+
+
+
+  <section id="search-content" class="py-2">
+    <div class="container" id="search-results"></div>
+  </section>
+</body>
+
+</html>

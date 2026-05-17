@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Installing Windows Server on VirtualBox for a Lab on Adam&#39;s Portfolio</title>
+    <link>http://localhost:1313/blogs/winserver/</link>
+    <description>Recent content in Installing Windows Server on VirtualBox for a Lab on Adam&#39;s Portfolio</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="http://localhost:1313/blogs/winserver/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>
