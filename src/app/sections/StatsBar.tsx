@@ -10,11 +10,13 @@ export default function StatsBar() {
       transition={{ duration: 0.6 }}
       className="flex justify-center"
     >
-      <div className="inline-flex items-center divide-x divide-border border border-border rounded-lg bg-card">
+      <div className="w-full max-w-lg grid grid-cols-3 divide-x divide-border border border-border rounded-lg bg-card overflow-hidden">
         {stats.map((stat, index) => (
-          <div key={index} className="px-8 py-4 text-center">
-            <div className="text-3xl font-mono text-primary mb-1">{stat.value}</div>
-            <div className="text-sm text-muted-foreground">{stat.label}</div>
+          <div key={index} className="px-2 sm:px-4 py-3 sm:py-4 text-center min-w-0">
+            <div className="text-xl sm:text-3xl font-mono text-primary mb-1">{stat.value}</div>
+            <div className="text-[10px] sm:text-sm text-muted-foreground leading-tight">
+              {stat.label}
+            </div>
           </div>
         ))}
       </div>

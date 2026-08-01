@@ -110,125 +110,131 @@ export type BlogPost = {
 export const profile: Profile = {
   name: 'Adamson Buliboli',
   firstName: 'Adamson',
-  tagline: 'I live in the digital world',
-  shortBio: '',
+  tagline: 'Graduate IT Professional',
+  shortBio: 'Graduate IT professional based in Sydney, focused on networking and infrastructure.',
   heroBio:
-    'Focused on networking, infrastructure, and cybersecurity, I enjoy creating practical projects that combine learning with real-world technology. From self-hosted systems to AI-powered applications, I like understanding how things work from the ground up.',
-  heroBioSecondary:
-    'Currently completing my Bachelor of IT while studying CCNA and building modern applications with AI tools.',
+    'Nearly 10 years of hands-on IT experience — from computer hardware and software troubleshooting to customer-facing technical support across telecom and BPO environments. Bachelor of IT (Kent Institute Australia), with a growing focus on networking and infrastructure through CCNA study (~60% complete) and a self-hosted home lab covering server administration, virtualization, and remote systems management.',
   aboutBio: [
-    'I’m a Bachelor of IT student who enjoys learning through building and experimentation. Most of my time is spent working on homelabs, self-hosted services, virtual machines, and personal infrastructure projects that help me better understand how real-world systems operate.',
-    'I’m especially interested in how different technologies connect together behind the scenes — from networking and Linux servers to DNS, virtualization, web hosting, and Active Directory environments. I enjoy troubleshooting, documenting what I learn, and gradually improving my technical skills through hands-on practice rather than only theory.',
-    'Outside of infrastructure and networking, I’ve also been exploring AI-assisted development and modern web technologies to build practical applications and tools while completing my degree.',
+    'I’m an IT support professional with nearly a decade of experience helping customers through hosting, telecom, and BPO support roles. I focus on clear troubleshooting, accurate documentation, and keeping service quality high under volume.',
+    'I recently completed my Bachelor of Information Technology at Kent Institute Australia and I’m working toward CCNA while expanding into networking and infrastructure. Hands-on labs and a self-hosted home server help me bridge day-to-day support experience toward enterprise systems work.',
+    'Outside of support roles, I build and maintain personal projects — multi-site hosting on Ubuntu/Apache, a personal finance app with Supabase, and a private local LLM study setup — to keep learning practical and cost-effective.',
   ],
-  email: 'adamsonb.au@gmail.com',
-  heroImage: '/images/me1.jpg',
-  aboutImage: '/images/me.jpg',
+  email: 'adamson.buliboli@gmail.com',
+  heroImage: '/images/me-main.jpg',
+  aboutImage: '/images/me-main.jpg',
   resumePath: '/resume.pdf',
   socialLinks: [
-    { label: 'GitHub', href: 'https://github.com/adamsonb' },
+    { label: 'GitHub', href: 'https://github.com/k230313' },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/adamsonb/' },
     { label: 'Facebook', href: 'https://www.facebook.com/adamson.794209' },
+    { label: 'Instagram', href: 'https://www.instagram.com/a_damn.son/' },
   ],
 };
 
 export const stats = [
-  { label: 'Projects', value: '4' },
-  { label: 'Certifications', value: '5' },
-  { label: 'Blog Posts', value: '5' },
+  { label: 'Years in Support', value: '10+' },
+  { label: 'Certifications', value: '7' },
+  { label: 'Projects', value: '6' },
 ];
 
 export const aboutSkillCards = [
   {
+    title: 'Technical Support',
+    description:
+      'Hardware & software troubleshooting, Windows & macOS support, remote desktop tools, ticketing systems (Zendesk)',
+  },
+  {
     title: 'Networking Fundamentals',
-    description: 'Cisco Packet Tracer, Routing & Switching, Subnetting & IP Addressing',
+    description:
+      'TCP/IP, LAN/WAN, DNS, FTP/SFTP/SSH — building on this through CCNA coursework (in progress)',
   },
   {
-    title: 'Windows & Identity',
-    description: 'Active Directory, Windows Server labs, user and domain administration',
+    title: 'Identity & Access',
+    description:
+      'Account and access support, password resets, and troubleshooting — extended into Microsoft Entra ID, MFA, and Conditional Access through SC-900 certification',
   },
   {
-    title: 'Self-Hosting',
-    description: 'Apache, Ubuntu, Tailscale, personal infrastructure and web hosting',
+    title: 'Security & Compliance',
+    description:
+      'Foundational knowledge of Microsoft Defender, Microsoft Purview, and data governance concepts through SC-900 certification, alongside CompTIA Security+ (in progress) for broader security fundamentals',
   },
   {
-    title: 'Hands-On Learning',
-    description: 'CLI workflows, documentation, lab writeups, and iterative troubleshooting',
+    title: 'Self-Hosting & Labs',
+    description:
+      'Ubuntu, Apache, Tailscale, Proxmox — hands-on homelab infrastructure and deployment practice',
   },
 ];
 
 export const experience: ExperienceItem[] = [
   {
-    company: 'Self Employed',
-    role: 'Computer Technician',
+    company: 'Self-Employed (Philippines)',
+    role: 'IT Support & Computer Technician',
     period: '2014 - 2023',
     description: [
-      'Installed and configured computers and peripheral equipment such as printers and scanners for individual customers and local computer shops.',
-      'Set up hardware, software, and drivers on operating systems and troubleshot issues on PCs and laptops.',
-      'Worked directly with customers to understand problems, recommend proper use and maintenance, and verify performance after each repair.',
+      'Delivered end-to-end IT support for individual and business clients, diagnosing and resolving hardware, software, and operating system issues on-site.',
+      'Installed, configured, and repaired desktop and laptop systems, including OS installation, software configuration, and peripheral setup.',
+      'Configured and deployed point-to-point wireless network links for clients with limited ISP access, extending reliable internet connectivity in underserved areas.',
+      'Maintained service records and communicated directly with clients throughout each job, ensuring clear explanations and full functionality after every repair.',
     ],
     link: '',
-    tech: [],
+    tech: ['Hardware', 'Windows', 'Wireless Networking'],
   },
   {
-    company: 'Group.One',
+    company: 'group.one (formerly one.com)',
     role: 'IT Customer Service Representative',
-    period: 'Feb 2023 - June 2023',
+    period: '2023',
     description: [
-      'Served as the first point of contact across chat, email, and social channels while owning customer cases with timely follow-ups.',
-      'Assisted customers building websites with the Website Builder, configured FTP, SFTP, and SSH, and troubleshot issues using internal and external tools.',
-      'Processed forms and requests and guided users through the one.com control panel.',
+      'Handled 50–60+ customer emails and tickets daily via Zendesk, resolving hosting, domain, and website builder issues while maintaining response quality — recognized with positive Trustpilot feedback.',
+      'Configured FTP/SFTP/SSH access for customers on shared hosting and guided them through basic connectivity and configuration tasks.',
+      'Troubleshot DNS propagation and domain configuration issues, guiding customers through record changes to restore website and email functionality.',
     ],
     link: 'https://one.com',
-    tech: [],
+    tech: ['Zendesk', 'DNS', 'FTP/SFTP/SSH', 'Shared Hosting'],
   },
   {
     company: 'Continuum Global Solutions',
     role: 'Customer Care Associate',
     period: '2022 - 2023',
     description: [
-      'Delivered customer care for wireless accounts, handling questions about plans, devices, and billing through live web chat.',
-      'Quickly navigated multiple applications, interpreted procedures, and researched solutions to resolve issues efficiently.',
-      'Communicated clearly, professionally, and courteously with customers throughout each interaction.',
+      'Diagnosed and resolved plan, device, billing, and account issues for customers via web-based chat, navigating multiple internal systems to identify root causes.',
+      'Documented issue resolutions clearly and consistently, maintaining accurate records across a high volume of customer interactions.',
     ],
     link: 'https://www.continuumgbl.com/',
-    tech: [],
+    tech: ['Live Chat', 'Billing Support', 'Account Support'],
   },
   {
     company: 'TDCX',
     role: 'Technical Support Advisor',
     period: '2021 - 2022',
     description: [
-      'Worked closely with customers to troubleshoot and resolve technical issues with step-by-step guidance.',
-      'Recommended products based on compatibility and specifications, scheduled appointments, and kept clear interaction records.',
-      'Shared feedback to improve support tools and processes while meeting performance goals and handling information securely.',
+      'Handled 3–5 concurrent live chats per shift, resolving technical issues in 10–15 minute average interactions while maintaining a consistent CSAT score of 96%+.',
+      'Provided consumer-facing technical support on behalf of a major global technology brand, following strict data confidentiality and security protocols.',
+      'Adapted quickly to new product releases and system changes while keeping resolution accuracy consistent.',
     ],
     link: 'https://www.tdcx.com/',
-    tech: [],
+    tech: ['Live Chat', 'Technical Support', 'CSAT'],
   },
   {
     company: 'Teletech',
     role: 'Technical Support Representative',
     period: '2019 - 2021',
     description: [
-      'Recommended products that fit customer needs and ensured compatibility with existing setups.',
-      'Handled inbound requests, scheduled appointments, kept accurate records, and processed payments quickly and accurately.',
-      'Remotely accessed clients computers to troubleshoot and resolve issues while protecting company and customer data.',
+      'Diagnosed and resolved technical issues via chat, using remote access tools to fix problems directly on customer systems.',
+      'Provided consumer-facing support on behalf of a large US-based retail client, following strict data security and privacy standards across all interactions.',
     ],
     link: 'https://ttec.com',
-    tech: [],
+    tech: ['Remote Desktop', 'Technical Support'],
   },
   {
     company: 'iPloy Inc.',
     role: 'Customer Service Representative',
     period: '2017 - 2019',
     description: [
-      'Helped the team stay on top of high-volume work by prioritizing tasks and carefully checking source data to minimize errors.',
-      'Contacted doctors clinics to obtain necessary documents so patients could receive medical supplies and followed up about appointments.',
-      'Handled private patient information with care and entered it into the backend system with very high accuracy.',
+      'Managed high-volume customer interactions and data entry, handling patient data in compliance with HIPAA and healthcare data protection standards.',
+      'Coordinated with external parties to secure documentation and manage appointment scheduling.',
     ],
     link: 'https://iploystaffing.com/',
-    tech: [],
+    tech: ['HIPAA', 'Data Entry', 'Customer Service'],
   },
 ];
 
@@ -236,44 +242,53 @@ export const education: EducationItem[] = [
   {
     degree: 'Bachelor of Information Technology',
     institution: 'Kent Institute Australia, Sydney',
-    period: '2024 - 2026',
+    period: '2023 - 2026',
     link: 'https://kent.edu.au',
     logo: '/images/kentlogo.png',
   },
   {
     degree: 'Diploma of Information Technology (Cyber Security)',
     institution: 'Kent Institute Australia, Sydney',
-    period: '2023 - 2024',
+    period: '2023 - 2026',
     link: 'https://kent.edu.au',
     logo: '/images/kentlogo.png',
-  },
-  {
-    degree: 'Bachelor of Science in Information Technology (Year 1)',
-    institution: 'Asian College of Technology, Cebu, Philippines',
-    period: '2015 - 2016',
-    highlights: [
-      "Dean's Lister",
-      'Year Level Representative for the entire student body',
-      'Document Formatting Competition Champion',
-    ],
-    link: 'https://act.edu.ph',
-    logo: '/images/actlogo.png',
-  },
-  {
-    degree: 'High School',
-    institution: 'Pardo National Highschool, Cebu, Philippines',
-    period: '2011 - 2015',
-    highlights: [
-      'Class President',
-      '2nd Runner Up, Regional Hardware and Software Servicing',
-    ],
-    logo: '/images/pardologo.png',
   },
 ];
 
 export const certifications: CertificationItem[] = [
   {
-    name: 'CompTIA A+ Certification',
+    name: 'Cisco CCNA',
+    issuer: 'Cisco',
+    issuerIcon: 'Cisco',
+    issuerLogo: '/images/CCNAlogo.png',
+    date: 'In Progress (~60%)',
+    expiryDate: null,
+    credentialId: null,
+    verificationUrl: null,
+    skills: ['Routing & Switching', 'Subnetting', 'Network Fundamentals'],
+    status: 'in-progress',
+    progress: 60,
+    summary:
+      'Progressing through CCNA certification with hands-on practice in routing, switching, subnetting, and network fundamentals.',
+    image: '/images/cisco.png',
+  },
+  {
+    name: 'CompTIA Security+',
+    issuer: 'CompTIA',
+    issuerIcon: 'CompTIA',
+    issuerLogo: '/images/A+logo.jpg',
+    date: 'In Progress',
+    expiryDate: null,
+    credentialId: null,
+    verificationUrl: null,
+    skills: ['Security Fundamentals', 'Threats & Vulnerabilities', 'Architecture'],
+    status: 'in-progress',
+    progress: 25,
+    summary: 'Working toward CompTIA Security+ to strengthen cybersecurity fundamentals alongside networking study.',
+    image: '/images/A+.png',
+  },
+  {
+    name: 'CompTIA A+',
     issuer: 'CompTIA',
     issuerIcon: 'CompTIA',
     issuerLogo: '/images/A+logo.jpg',
@@ -289,6 +304,21 @@ export const certifications: CertificationItem[] = [
     image: '/images/A+.png',
   },
   {
+    name: 'CompTIA ITF+',
+    issuer: 'CompTIA',
+    issuerIcon: 'CompTIA',
+    issuerLogo: '/images/ITF+logo.png',
+    date: 'Completed',
+    expiryDate: null,
+    credentialId: null,
+    verificationUrl: 'https://cp.certmetrics.com/comptia/en/public/verify/credential/TDSN6MHYPBEEQSGH',
+    skills: ['IT Concepts', 'Hardware', 'Software', 'Security'],
+    status: 'completed',
+    progress: 100,
+    summary: 'Foundational knowledge in IT concepts, hardware, software, and security.',
+    image: '/images/itf.png',
+  },
+  {
     name: 'Google IT Support Professional Certificate',
     issuer: 'Google',
     issuerIcon: 'Google',
@@ -300,61 +330,29 @@ export const certifications: CertificationItem[] = [
     skills: ['IT Support', 'Troubleshooting', 'Systems'],
     status: 'completed',
     progress: 100,
-    summary: 'Completed the program by solving real-world IT problems with optimal solutions.',
+    summary: 'Completed the program by solving real-world IT problems with practical support workflows.',
     image: '/images/google.png',
   },
   {
-    name: 'Cisco CCNA (in progress)',
-    issuer: 'Cisco',
-    issuerIcon: 'Cisco',
-    issuerLogo: '/images/CCNAlogo.png',
-    date: '[In Progress]',
+    name: 'Zendesk Customer Service Professional Certificate',
+    issuer: 'Zendesk',
+    issuerIcon: 'Zendesk',
+    date: 'Completed',
     expiryDate: null,
     credentialId: null,
     verificationUrl: null,
-    skills: ['Routing & Switching', 'Subnetting', 'Network Fundamentals'],
-    status: 'in-progress',
-    progress: 40,
-    summary:
-      'Currently working toward CCNA certification with hands-on practice in routing, switching, subnetting, and network fundamentals.',
-    image: '/images/cisco.png',
-  },
-  {
-    name: 'CompTIA ITF+ Certification',
-    issuer: 'CompTIA',
-    issuerIcon: 'CompTIA',
-    issuerLogo: '/images/ITF+logo.png',
-    skills: ['IT Concepts', 'Hardware', 'Software', 'Security'],
+    skills: ['Customer Service', 'Ticketing', 'Support Operations'],
     status: 'completed',
     progress: 100,
-    summary: 'Gained foundational knowledge in IT concepts, hardware, software, and security.',
-    image: '/images/itf.png',
-    date: '',
-    expiryDate: null,
-    credentialId: null,
-    verificationUrl: null
+    summary: 'Professional certificate covering Zendesk customer service workflows and support best practices.',
+    image: '/images/google.png',
   },
   {
-    name: 'University of Michigan - Programming for Everybody (Python)',
-    issuer: 'Coursera',
-    issuerIcon: 'Python',
-    issuerLogo: '/images/coursera.svg',
-    date: '[PLACEHOLDER]',
-    expiryDate: null,
-    credentialId: null,
-    verificationUrl: 'https://coursera.org/share/60b3190c65691b7211ee03be83534ed1',
-    skills: ['Python', 'Programming Fundamentals'],
-    status: 'completed',
-    progress: 100,
-    summary: 'Learned the basics of programming using Python, building functional programs from scratch.',
-    image: '/images/python.png',
-  },
-  {
-    name: 'Forage - Commonwealth Bank Cybersecurity Job Simulation',
+    name: 'Commonwealth Bank - Introduction to Cybersecurity Job Simulation',
     issuer: 'Forage',
     issuerIcon: 'Forage',
     issuerLogo: '/images/foragelogo.webp',
-    date: '[PLACEHOLDER]',
+    date: 'Completed',
     expiryDate: null,
     credentialId: null,
     verificationUrl: null,
@@ -365,39 +363,54 @@ export const certifications: CertificationItem[] = [
       'Completed a practical job simulation focused on cybersecurity fundamentals and problem-solving in a banking environment.',
     image: '/images/commbank.png',
   },
+  {
+    name: 'University of Michigan - Programming for Everybody (Python)',
+    issuer: 'Coursera',
+    issuerIcon: 'Python',
+    issuerLogo: '/images/coursera.svg',
+    date: 'Completed',
+    expiryDate: null,
+    credentialId: null,
+    verificationUrl: 'https://coursera.org/share/60b3190c65691b7211ee03be83534ed1',
+    skills: ['Python', 'Programming Fundamentals'],
+    status: 'completed',
+    progress: 100,
+    summary: 'Learned programming fundamentals in Python, building functional programs from scratch.',
+    image: '/images/python.png',
+  },
 ];
 
 export const projects: ProjectItem[] = [
   {
     slug: 'home-lab',
-    title: 'Home Lab',
-    subtitle: 'Self-hosted virtualized environment for Windows Server and networking labs',
+    title: 'Self-Hosted Home Server',
+    subtitle: 'Ubuntu/Apache multi-site hosting with secure remote access',
     description:
-      'A self-hosted virtualized environment for learning Windows Server, Active Directory, and networking.',
+      'Self-hosted Ubuntu/Apache server managing multiple live domains — portfolio, real estate, and capstone app — administered remotely over Tailscale SSH.',
     featured: true,
     featuredOnHome: true,
     status: 'ongoing',
     date: '2025',
     duration: '2025 - Present',
     readingTime: '5 min read',
-    tech: ['VirtualBox', 'Windows Server', 'Windows 10', 'Active Directory', 'Tailscale', 'HP EliteDesk'],
+    tech: ['Ubuntu', 'Apache', 'Tailscale', 'SSH', 'DNS', 'VirtualBox', 'Windows Server', 'Active Directory'],
     coverImage: '/images/g3.jpg',
     links: {
-      demo: null,
+      demo: 'https://adamsonb.com',
       github: null,
     },
     summary: {
       problem:
-        'I needed a safe environment to learn core infrastructure concepts such as virtualization, Windows Server administration, identity, and network services without affecting production systems.',
+        'I needed real-world deployment practice and a cheaper way to host multiple sites without relying only on shared hosting.',
       solution:
-        'Built a self-hosted homelab around an HP EliteDesk mini PC and layered in Windows Server, Windows 10, Active Directory, and remote access workflows.',
+        'Built a self-hosted Ubuntu/Apache environment that serves live domains and supports remote administration via SSH over Tailscale, alongside Windows Server and networking labs.',
       outcome:
-        'Documented through 4 detailed lab writeups and expanded into a repeatable learning environment for future systems and networking experiments.',
+        'Hosts my portfolio, a real estate site, and ceda.online, while doubling as a learning platform for infrastructure and network support skills.',
     },
     detailBody: [
-      'This project is my long-running lab environment for learning by building. It combines virtualization, Windows administration, networking, and documentation into one evolving setup.',
-      'The lab supports experimentation with domain services, client management, remote access, and future infrastructure services, while keeping the environment isolated and easy to rebuild.',
-      'The blog series attached to this project documents the setup and the major milestones in the lab so each stage can be reproduced later.',
+      'This project is my long-running infrastructure practice environment. It combines production-style hosting with lab work so I can learn by deploying and maintaining real services.',
+      'Live sites on the server include my portfolio, a client real estate site, and my capstone campus event app at ceda.online.',
+      'The attached blog series documents Windows Server, Active Directory, and related lab milestones so each stage can be reproduced later.',
     ],
     screenshots: [
       {
@@ -436,31 +449,31 @@ export const projects: ProjectItem[] = [
     title: 'Personal Portfolio Website',
     subtitle: 'Self-hosted portfolio and blog',
     description:
-      'Self-hosted personal portfolio and blog hosted on a self-managed Ubuntu server with Apache and Tailscale.',
+      'Personal portfolio and technical blog self-hosted on Ubuntu/Apache and managed securely over Tailscale.',
     featured: true,
     featuredOnHome: true,
     status: 'completed',
     date: '2025',
     duration: '2025',
     readingTime: '3 min read',
-    tech: ['Apache', 'Ubuntu', 'Tailscale', 'HTML', 'CSS'],
+    tech: ['React', 'Vite', 'TypeScript', 'Tailwind CSS', 'Apache', 'Ubuntu', 'Tailscale'],
     coverImage: '/images/portpic.png',
     links: {
       demo: 'https://adamsonb.com',
-      github: 'https://github.com/adamsonb',
+      github: 'https://github.com/k230313/portfolio',
     },
     summary: {
       problem:
-        'I needed a portfolio that could present my labs, certifications, and technical background while also giving me hands-on experience running my own site.',
+        'I needed a portfolio that could present my experience, labs, and certifications while giving me hands-on practice running my own site.',
       solution:
-        'Built the site and deployed it to a self-managed Ubuntu server behind Apache, then used Tailscale to support secure administration.',
+        'Built a modern React portfolio and deployed it to a self-managed Ubuntu server behind Apache, with Tailscale for secure administration.',
       outcome:
-        'Created a live portfolio and blog that doubles as a practical self-hosting project and a place to publish technical writeups.',
+        'A live portfolio that doubles as a practical self-hosting project and a place to publish technical writeups.',
     },
     detailBody: [
-      'This site started as both a portfolio and a practical infrastructure exercise. I wanted to publish my work while also learning how to manage deployment, hosting, and updates myself.',
-      'The project combines static site generation with self-managed hosting so content publishing and systems administration both stay part of the workflow.',
-      'GitHub URL: https://github.com/adamsonb',
+      'This site is both a portfolio and an infrastructure exercise — publishing my work while managing deployment, hosting, and updates myself.',
+      'The stack combines a Vite/React frontend with self-managed hosting so content publishing and systems administration stay part of the workflow.',
+      'GitHub: https://github.com/k230313/portfolio',
     ],
     screenshots: [],
   },
@@ -469,7 +482,7 @@ export const projects: ProjectItem[] = [
     title: 'Campus Event Discovery App',
     subtitle: 'Capstone project for discovering and managing campus events',
     description:
-      'A web application for discovering and managing campus events, built as a capstone project.',
+      'A web application for discovering and managing campus events, built as a capstone project and hosted at ceda.online.',
     featured: true,
     featuredOnHome: true,
     status: 'completed',
@@ -487,19 +500,10 @@ export const projects: ProjectItem[] = [
       'Node.js',
       'Express.js v5',
       'MySQL 8.0',
-      'mysql2',
       'JWT',
-      'dotenv',
-      'CORS',
-      'Resend API',
       'PM2',
       'Nginx',
       'Cloudflare Tunnel',
-      'VS Code',
-      'Postman',
-      'Git',
-      'GitHub',
-      'Figma',
     ],
     coverLabel: 'Capstone Project',
     coverImage: '/images/ceda.png',
@@ -513,14 +517,12 @@ export const projects: ProjectItem[] = [
       solution:
         'Built a full-stack campus event discovery application with event browsing, management, authentication, and transactional email workflows.',
       outcome:
-        'Delivered a polished capstone project with a live deployment, secure session management, and an extensible event management backend.',
+        'Delivered a polished capstone project with a live deployment at ceda.online and an extensible event management backend.',
     },
     detailBody: [
-      'This Capstone project enables students to discover campus events, manage registrations, and access event details in a modern web interface.',
-      'Frontend: React 18, TypeScript, Vite, Tailwind CSS v4, shadcn/ui, MUI, and React Router v7.',
-      'Backend: Node.js, Express.js v5, MySQL 8.0 with raw mysql2, JWT-based authentication, dotenv, and CORS.',
+      'This capstone project enables students to discover campus events, manage registrations, and access event details in a modern web interface.',
       'Live URL: https://ceda.online',
-      'GitHub URL: https://github.com/k230313/Campus-Event-Discovery-App',
+      'GitHub: https://github.com/k230313/Campus-Event-Discovery-App',
     ],
     screenshots: [
       {
@@ -533,44 +535,107 @@ export const projects: ProjectItem[] = [
     capstone: true,
   },
   {
-    slug: 'evans-real-estate-website',
-    title: 'Evans Real Estate Website',
-    subtitle: 'Professional real estate website for a client',
+    slug: 'personal-finance-app',
+    title: 'Personal Finance Web App',
+    subtitle: 'Auth-backed finance tracker built with AI-assisted development',
     description:
-      'A professional real estate website built and self-hosted for a client.',
-    featured: false,
+      'Personal finance web app with authentication and a secure Supabase backend — vibe-coded to replace subscription tools that lacked the features I needed.',
+    featured: true,
     featuredOnHome: true,
-    status: 'completed',
+    status: 'ongoing',
     date: '2025',
-    duration: '2025',
+    duration: '2025 - Present',
     readingTime: '3 min read',
-    tech: ['Apache', 'Ubuntu', 'Tailscale'],
-    coverLabel: 'Client Build',
-    coverImage: '/images/evans.png',
+    tech: ['React', 'Supabase', 'Authentication', 'AI-assisted development'],
+    coverLabel: 'Personal Tool',
     links: {
       demo: null,
       github: null,
     },
     summary: {
       problem:
-        'The client needed a professional website that could present real estate listings and business information with reliable self-managed hosting.',
+        'Existing finance apps lacked the features I needed and came with ongoing subscription costs.',
       solution:
-        'Built and deployed the site on a self-hosted stack using Apache, Ubuntu, and Tailscale for management access.',
+        'Designed functionality in plain language and iterated with AI tools to build an authenticated web app on a secure Supabase database backend.',
       outcome:
-        'Delivered a live client website and left placeholders for screenshots and the final public URL.',
+        'A custom finance tracker tailored to my workflow, built as both a practical tool and a modern web development exercise.',
+    },
+    detailBody: [
+      'This project started from a practical gap: I wanted finance tracking without paying for tools that did not fit how I work.',
+      'I used an AI-assisted (“vibe-coded”) workflow — describing features, reviewing output, and iterating — while keeping authentication and data storage on Supabase.',
+    ],
+    screenshots: [],
+  },
+  {
+    slug: 'local-llm-study-environment',
+    title: 'Local LLM Study Environment',
+    subtitle: 'Private CCNA study assistant with Ollama and Open WebUI',
+    description:
+      'Local LLM setup using Ollama and Open WebUI as a private, offline CCNA study assistant.',
+    featured: false,
+    featuredOnHome: false,
+    status: 'ongoing',
+    date: '2025',
+    duration: '2025 - Present',
+    readingTime: '2 min read',
+    tech: ['Ollama', 'Open WebUI', 'Local LLMs', 'Ubuntu'],
+    coverLabel: 'Study Lab',
+    links: {
+      demo: null,
+      github: null,
+    },
+    summary: {
+      problem:
+        'Cloud AI study tools raise privacy, offline-access, and cost concerns while I prepare for CCNA.',
+      solution:
+        'Set up a local LLM environment with Ollama and Open WebUI to keep study assistance private and available offline.',
+      outcome:
+        'A personal study assistant that also deepens understanding of the underlying local-AI stack.',
+    },
+    detailBody: [
+      'This lab prioritises privacy, offline access, and cost savings over cloud-based study tools.',
+      'Running models locally also helps me learn how inference tooling fits into a self-hosted environment.',
+    ],
+    screenshots: [],
+  },
+  {
+    slug: 'evans-real-estate-website',
+    title: 'Evans Real Estate Website',
+    subtitle: 'Professional real estate website for a client',
+    description:
+      'A professional real estate website built and self-hosted for a client on the same Ubuntu/Apache stack.',
+    featured: false,
+    featuredOnHome: true,
+    status: 'completed',
+    date: '2025',
+    duration: '2025',
+    readingTime: '3 min read',
+    tech: ['Apache', 'Ubuntu', 'Tailscale', 'Vite', 'React'],
+    coverLabel: 'Client Build',
+    coverImage: '/images/evans.png',
+    links: {
+      demo: 'https://evansrealestate.com',
+      github: null,
+    },
+    summary: {
+      problem:
+        'The client needed a professional website for real estate listings and business information with reliable self-managed hosting.',
+      solution:
+        'Built and deployed the site on a self-hosted Ubuntu/Apache stack with Tailscale for management access.',
+      outcome:
+        'Delivered a live client website hosted alongside my other domains on the home server.',
     },
     detailBody: [
       'This client project focused on delivering a professional real estate website with self-managed hosting and straightforward deployment.',
-      'Live URL: [PLACEHOLDER]',
-      'Screenshots: [PLACEHOLDER]',
-      'GitHub URL: [PLACEHOLDER]',
+      'It runs on the same self-hosted infrastructure used for my portfolio and capstone app.',
     ],
     screenshots: [
       {
         id: 1,
         title: 'Project Screenshot',
-        description: '[PLACEHOLDER]',
-        placeholder: '[PLACEHOLDER]',
+        description: 'Evans Real Estate site',
+        src: '/images/evans.png',
+        alt: 'Evans Real Estate website',
       },
     ],
   },
@@ -578,8 +643,64 @@ export const projects: ProjectItem[] = [
 
 export const allBlogPosts = blogPosts as BlogPost[];
 
+/** Alias — current posts are technical writeups, not blog essays */
+export const allWriteups = allBlogPosts;
+
+export type WriteupCategory = {
+  title: string;
+  slugs: string[];
+};
+
+/** Topic groups for the Technical Writeups index (add new slugs here as you publish) */
+export const writeupCategories: WriteupCategory[] = [
+  {
+    title: 'Homelab',
+    slugs: ['homelab-setup'],
+  },
+  {
+    title: 'Windows Server',
+    slugs: ['winserver'],
+  },
+  {
+    title: 'Windows Client',
+    slugs: ['win10'],
+  },
+  {
+    title: 'Active Directory',
+    slugs: ['ad_ds', 'manage_users'],
+  },
+];
+
+export function getWriteupsByCategory() {
+  return writeupCategories
+    .map(category => ({
+      title: category.title,
+      posts: category.slugs
+        .map(slug => allWriteups.find(post => post.slug === slug))
+        .filter((post): post is BlogPost => Boolean(post)),
+    }))
+    .filter(group => group.posts.length > 0);
+}
+
 export const featuredProjects = projects.filter(project => project.featured);
 
 export const homeProjects = projects.filter(project => project.featuredOnHome).slice(0, 4);
+
+/** Three showcase cards for the home fan: left, center (home server), right */
+export const showcaseProjects = [
+  projects.find(project => project.slug === 'personal-portfolio-website'),
+  projects.find(project => project.slug === 'home-lab'),
+  projects.find(project => project.slug === 'campus-event-discovery-app'),
+].filter(Boolean) as ProjectItem[];
+
+const homeCertNames = [
+  'CompTIA A+',
+  'CompTIA ITF+',
+  'Google IT Support Professional Certificate',
+];
+
+export const homeCertifications = homeCertNames
+  .map(name => certifications.find(cert => cert.name === name))
+  .filter(Boolean) as CertificationItem[];
 
 export const recentCertifications = certifications.slice(0, 3);

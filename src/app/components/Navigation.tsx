@@ -1,7 +1,8 @@
 import { Link, useLocation } from 'react-router';
-import { Moon, Sun, Search, Download } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { Moon, Sun, Menu, X } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { profile } from '../content/siteContent';
+import { siteNavLinks } from '../content/nav';
 
 interface NavigationProps {
   theme: 'light' | 'dark';
@@ -10,125 +11,131 @@ interface NavigationProps {
 
 export default function Navigation({ theme, toggleTheme }: NavigationProps) {
   const location = useLocation();
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [showSearch, setShowSearch] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    setMobileOpen(false);
+  }, [location.pathname]);
 
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
-        e.preventDefault();
-        setShowSearch(prev => !prev);
-      }
+    document.body.style.overflow = mobileOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
     };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
-
-  const navLinks = [
-    { path: '/', label: 'Home' },
-    { path: '/about', label: 'About' },
-    { path: '/projects', label: 'Projects' },
-    { path: '/blog', label: 'Blog' },
-    { path: '/gallery', label: 'Gallery' },
-  ];
+  }, [mobileOpen]);
 
   const isActiveLink = (path: string) => {
-    if (path === '/') {
-      return location.pathname === '/';
-    }
+    if (path === '/') return location.pathname === '/';
     return location.pathname.startsWith(path);
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  };
+
+  const navContent = (
+    <>
+      <Link
+        to="/"
+        className="flex items-center gap-2 px-1 mb-8"
+        onClick={() => {
+          setMobileOpen(false);
+          scrollToTop();
+        }}
+      >
+        <span className="font-mono text-primary">{'>'}_</span>
+        <span style={{ fontFamily: 'var(--font-heading)' }} className="text-xl tracking-tight">
+          {profile.firstName}
+        </span>
+      </Link>
+
+      <nav className="flex-1 space-y-1">
+        {siteNavLinks.map(link => (
+          <Link
+            key={link.path}
+            to={link.path}
+            onClick={() => {
+              setMobileOpen(false);
+              scrollToTop();
+            }}
+            className={`block px-3 py-2.5 rounded-md text-sm transition-colors ${
+              isActiveLink(link.path)
+                ? 'bg-primary/10 text-primary font-medium'
+                : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+            }`}
+          >
+            {link.label}
+          </Link>
+        ))}
+      </nav>
+
+      <div className="mt-auto pt-6 space-y-3 border-t border-border">
+        <button
+          type="button"
+          onClick={toggleTheme}
+          className="flex items-center justify-center gap-2 w-full px-3 py-2 text-sm rounded-md hover:bg-muted transition-colors"
+          aria-label="Toggle theme"
+        >
+          {theme === 'light' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
+          {theme === 'light' ? 'Dark mode' : 'Light mode'}
+        </button>
+      </div>
+    </>
+  );
+
   return (
-    <nav
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-background/80 backdrop-blur-md border-b border-border'
-          : 'bg-background'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2">
+    <>
+      {/* Desktop sidebar */}
+      <aside className="hidden lg:flex fixed inset-y-0 left-0 z-40 w-60 flex-col border-r border-border bg-background px-4 py-6">
+        {navContent}
+      </aside>
+
+      {/* Mobile top bar — fixed so it stays visible while scrolling */}
+      <header className="lg:hidden fixed top-0 inset-x-0 z-50 border-b border-border bg-background/95 backdrop-blur-md">
+        <div className="flex items-center justify-between px-4 py-3">
+          <Link to="/" className="flex items-center gap-2" onClick={scrollToTop}>
             <span className="font-mono text-primary">{'>'}_</span>
-            <span style={{ fontFamily: 'var(--font-heading)' }} className="text-xl tracking-tight">
+            <span style={{ fontFamily: 'var(--font-heading)' }} className="text-lg tracking-tight">
               {profile.firstName}
             </span>
           </Link>
-
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map(link => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`relative transition-colors ${
-                  isActiveLink(link.path)
-                    ? 'text-primary'
-                    : 'text-muted-foreground hover:text-foreground'
-                }`}
-              >
-                {link.label}
-                {isActiveLink(link.path) && (
-                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary" />
-                )}
-              </Link>
-            ))}
-          </div>
-
-          <div className="flex items-center gap-3">
-            <a
-              href={profile.resumePath}
-              download
-              className="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 text-sm border border-border rounded-md hover:bg-muted transition-colors"
-            >
-              <Download className="w-4 h-4" />
-              Resume
-            </a>
-            <button
-              onClick={() => setShowSearch(prev => !prev)}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-md border border-border bg-muted/50 hover:bg-muted transition-colors"
-              aria-label="Search"
-            >
-              <Search className="w-4 h-4" />
-              <span className="hidden sm:inline text-sm text-muted-foreground font-mono">
-                Ctrl+K
-              </span>
-            </button>
-
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-md hover:bg-muted transition-colors"
-              aria-label="Toggle theme"
-            >
-              {theme === 'light' ? (
-                <Moon className="w-5 h-5" />
-              ) : (
-                <Sun className="w-5 h-5" />
-              )}
-            </button>
-          </div>
+          <button
+            type="button"
+            onClick={() => setMobileOpen(true)}
+            className="p-2 rounded-md border border-border hover:bg-muted"
+            aria-label="Open menu"
+          >
+            <Menu className="w-5 h-5" />
+          </button>
         </div>
+      </header>
+      {/* Spacer so content isn't under the fixed bar */}
+      <div className="lg:hidden h-14" aria-hidden />
 
-        {showSearch && (
-          <div className="mt-4 p-3 rounded-md border border-border bg-card">
-            <input
-              type="text"
-              placeholder="Search..."
-              className="w-full bg-transparent outline-none"
-              autoFocus
-              onBlur={() => setTimeout(() => setShowSearch(false), 200)}
-            />
-          </div>
-        )}
-      </div>
-    </nav>
+      {/* Mobile drawer */}
+      {mobileOpen && (
+        <div className="lg:hidden fixed inset-0 z-[60]">
+          <button
+            type="button"
+            className="absolute inset-0 bg-black/40"
+            aria-label="Close menu overlay"
+            onClick={() => setMobileOpen(false)}
+          />
+          <aside className="absolute inset-y-0 left-0 w-[min(100%,18rem)] bg-background border-r border-border px-4 py-6 flex flex-col shadow-xl">
+            <div className="flex justify-end mb-2">
+              <button
+                type="button"
+                onClick={() => setMobileOpen(false)}
+                className="p-2 rounded-md hover:bg-muted"
+                aria-label="Close menu"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            {navContent}
+          </aside>
+        </div>
+      )}
+    </>
   );
 }

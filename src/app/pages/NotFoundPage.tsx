@@ -82,12 +82,16 @@ export default function NotFoundPage() {
               Projects
             </Link>
             <span className="text-muted-foreground">•</span>
+            <Link to="/writeups" className="text-muted-foreground hover:text-primary transition-colors">
+              Technical Writeups
+            </Link>
+            <span className="text-muted-foreground">•</span>
             <Link to="/blog" className="text-muted-foreground hover:text-primary transition-colors">
               Blog
             </Link>
             <span className="text-muted-foreground">•</span>
             <Link to="/about" className="text-muted-foreground hover:text-primary transition-colors">
-              About
+              About Me
             </Link>
             <span className="text-muted-foreground">•</span>
             <Link to="/gallery" className="text-muted-foreground hover:text-primary transition-colors">

@@ -6,7 +6,7 @@ import { toast } from 'sonner';
 import TechBadge from '../components/TechBadge';
 import Card from '../components/Card';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
-import { allBlogPosts, projects } from '../content/siteContent';
+import { allWriteups, projects } from '../content/siteContent';
 
 export default function ProjectDetailPage() {
   const { slug } = useParams();
@@ -14,7 +14,7 @@ export default function ProjectDetailPage() {
 
   const project = projects.find(item => item.slug === slug) || projects[0];
   const relatedProjects = projects.filter(item => item.slug !== project.slug).slice(0, 3);
-  const relatedBlogPosts = allBlogPosts.filter(post => project.relatedBlogSlugs?.includes(post.slug));
+  const relatedWriteups = allWriteups.filter(post => project.relatedBlogSlugs?.includes(post.slug));
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(window.location.href);
@@ -68,7 +68,7 @@ export default function ProjectDetailPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-background/70 to-transparent" />
       </div>
 
-      <div className="max-w-5xl mx-auto px-6 py-12">
+      <div className="w-full py-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -222,12 +222,12 @@ export default function ProjectDetailPage() {
 
           <div className="border-t border-border pt-12">
             <h2 className="text-2xl mb-6" style={{ fontFamily: 'var(--font-heading)' }}>
-              {relatedBlogPosts.length > 0 ? 'Related Blog Posts' : 'Related Projects'}
+              {relatedWriteups.length > 0 ? 'Related Writeups' : 'Related Projects'}
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
-              {relatedBlogPosts.length > 0
-                ? relatedBlogPosts.map(post => (
-                    <Link key={post.slug} to={`/blog/${post.slug}`}>
+              {relatedWriteups.length > 0
+                ? relatedWriteups.map(post => (
+                    <Link key={post.slug} to={`/writeups/${post.slug}`}>
                       <Card className="h-full group">
                         <div className="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg mb-4 border border-border overflow-hidden">
                           <ImageWithFallback

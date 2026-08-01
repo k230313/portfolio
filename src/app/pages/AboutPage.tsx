@@ -1,6 +1,5 @@
 import { motion } from "motion/react";
 import {
-  Download,
   Github,
   Linkedin,
   Mail,
@@ -10,6 +9,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import Card from "../components/Card";
+import StatsBar from "../sections/StatsBar";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import {
   aboutSkillCards,
@@ -20,35 +20,11 @@ import {
 } from "../content/siteContent";
 
 export default function AboutPage() {
-  const skills = [
-    {
-      category: "Hands-On Labs",
-      items: [
-        "Cisco Packet Tracer",
-        "Routing & Switching",
-        "Subnetting & IP Addressing",
-        "VLANs & Trunking",
-      ],
-    },
-    {
-      category: "Systems & Hosting",
-      items: [
-        "Active Directory",
-        "Windows Server",
-        "Apache",
-        "Ubuntu",
-        "Self-hosting",
-      ],
-    },
-    {
-      category: "Workflow",
-      items: ["CLI", "Documentation", "Troubleshooting", "Lab Writeups"],
-    },
-    {
-      category: "Current Focus",
-      items: aboutSkillCards.map((skill) => skill.title),
-    },
-  ];
+  const parseEndYear = (period: string) => {
+    const years = period.match(/\d{4}/g);
+    if (!years?.length) return 0;
+    return Number(years[years.length - 1]);
+  };
 
   const timeline = [
     ...experience.map((item) => ({
@@ -57,19 +33,21 @@ export default function AboutPage() {
       organization: item.company,
       period: item.period,
       description: item.description[0],
+      sortYear: parseEndYear(item.period),
     })),
     ...education.map((item) => ({
       type: "education" as const,
       title: item.degree,
       organization: item.institution,
       period: item.period,
-      description: item.highlights ? item.highlights.join(" • ") : "",
+      description: item.highlights?.join(" • ") ?? "",
+      sortYear: parseEndYear(item.period),
     })),
-  ];
+  ].sort((a, b) => b.sortYear - a.sortYear);
 
   return (
-    <div className="min-h-screen py-24">
-      <div className="max-w-5xl mx-auto px-6">
+    <div className="py-12 sm:py-16">
+      <div className="w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -96,7 +74,7 @@ export default function AboutPage() {
                   <ImageWithFallback
                     src={profile.aboutImage}
                     alt={profile.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-[center_15%]"
                   />
                 </div>
               </div>
@@ -133,14 +111,6 @@ export default function AboutPage() {
                 >
                   <Mail className="w-5 h-5" />
                   <span className="text-sm">Email</span>
-                </a>
-                <a
-                  href={profile.resumePath}
-                  download
-                  className="flex items-center justify-center gap-2 p-3 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
-                >
-                  <Download className="w-5 h-5" />
-                  <span className="text-sm">Download Resume</span>
                 </a>
               </div>
             </motion.div>
@@ -200,38 +170,36 @@ export default function AboutPage() {
           </div>
 
           <div className="mb-16">
-            <h2
-              className="text-2xl mb-6"
-              style={{ fontFamily: "var(--font-heading)" }}
-            >
-              Skills & Technologies
-            </h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              {skills.map((skillGroup, index) => (
+            <StatsBar />
+
+            <div className="mt-14 mb-8">
+              <h2
+                className="text-2xl font-semibold mb-2"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                What I work with
+              </h2>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {aboutSkillCards.map((skill, index) => (
                 <motion.div
-                  key={skillGroup.category}
+                  key={skill.title}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.1 * index }}
+                  transition={{ duration: 0.4, delay: index * 0.06 }}
+                  whileHover={{
+                    scale: 1.04,
+                    y: -6,
+                    transition: { type: "spring", stiffness: 400, damping: 18 },
+                  }}
+                  whileTap={{ scale: 0.98 }}
+                  className="bg-card border border-border rounded-lg p-5 shadow-sm hover:shadow-md hover:border-primary/50 transition-shadow cursor-default"
                 >
-                  <Card>
-                    <h3
-                      className="mb-4"
-                      style={{ fontFamily: "var(--font-heading)" }}
-                    >
-                      {skillGroup.category}
-                    </h3>
-                    <div className="flex flex-wrap gap-2">
-                      {skillGroup.items.map((skill) => (
-                        <span
-                          key={skill}
-                          className="px-2.5 py-1 text-xs bg-muted rounded font-mono text-muted-foreground"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </Card>
+                  <h3 className="mb-2" style={{ fontFamily: "var(--font-heading)" }}>
+                    {skill.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground">{skill.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -244,33 +212,33 @@ export default function AboutPage() {
             >
               Experience & Education Timeline
             </h2>
-            <div className="relative">
-              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border" />
+            <div className="relative pl-2 sm:pl-0">
+              <div className="absolute left-4 sm:left-8 top-2 bottom-2 w-px bg-border" />
 
-              <div className="space-y-8">
+              <div className="space-y-6">
                 {timeline.map((item, index) => (
                   <motion.div
                     key={`${item.type}-${item.title}-${index}`}
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={{ opacity: 0, x: -16 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.4, delay: 0.05 * index }}
-                    className="relative pl-20"
+                    transition={{ duration: 0.35, delay: 0.04 * index }}
+                    className="relative pl-12 sm:pl-20"
                   >
-                    <div className="absolute left-0 top-1 w-16 h-16 rounded-full bg-card border-4 border-background flex items-center justify-center">
+                    <div className="absolute left-0 top-1 w-8 h-8 sm:w-16 sm:h-16 rounded-full bg-card border border-border flex items-center justify-center">
                       {item.type === "work" ? (
-                        <Briefcase className="w-6 h-6 text-primary" />
+                        <Briefcase className="w-4 h-4 sm:w-6 sm:h-6 text-primary" />
                       ) : (
-                        <GraduationCap className="w-6 h-6 text-accent" />
+                        <GraduationCap className="w-4 h-4 sm:w-6 sm:h-6 text-accent" />
                       )}
                     </div>
 
                     <Card className="hover:border-border" hover={false}>
-                      <div className="flex items-start justify-between mb-2">
+                      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
                         <h3 style={{ fontFamily: "var(--font-heading)" }}>
                           {item.title}
                         </h3>
                         <span
-                          className={`px-2 py-0.5 text-xs rounded font-mono ${
+                          className={`self-start px-2 py-0.5 text-xs rounded font-mono ${
                             item.type === "work"
                               ? "bg-primary/10 text-primary"
                               : "bg-accent/10 text-accent"
@@ -286,9 +254,9 @@ export default function AboutPage() {
                         <Calendar className="w-4 h-4" />
                         <span className="font-mono">{item.period}</span>
                       </div>
-                      <p className="text-sm text-muted-foreground">
-                        {item.description}
-                      </p>
+                      {item.description ? (
+                        <p className="text-sm text-muted-foreground">{item.description}</p>
+                      ) : null}
                     </Card>
                   </motion.div>
                 ))}

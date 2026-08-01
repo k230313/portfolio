@@ -1,22 +1,20 @@
 import Hero from '../sections/Hero';
-import About from '../sections/About';
-import FeaturedProjects from '../sections/FeaturedProjects';
+import BlogPreview from '../sections/BlogPreview';
+import Projects from '../sections/Projects';
 import Experience from '../sections/Experience';
 import Education from '../sections/Education';
 import Certifications from '../sections/Certifications';
-import Projects from '../sections/Projects';
 import Contact from '../sections/Contact';
 
 export default function HomePage() {
   return (
     <div>
       <Hero />
-      <About />
-      <FeaturedProjects />
+      <BlogPreview />
+      <Projects />
       <Experience />
       <Education />
       <Certifications />
-      <Projects />
       <Contact />
     </div>
   );
