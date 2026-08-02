@@ -88,6 +88,9 @@ export default function Hero() {
                   }`}
                 />
               </p>
+              <p className="mt-1 text-sm sm:text-base text-muted-foreground/80">
+                Sydney, Australia
+              </p>
             </div>
 
             <div className="text-sm sm:text-lg text-muted-foreground mb-5 sm:mb-8 max-w-xl leading-relaxed">
