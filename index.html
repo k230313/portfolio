@@ -4,15 +4,54 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Adamson Buliboli</title>
+    <meta
+      name="description"
+      content="Graduate IT professional in Sydney — technical support, networking, home lab, and infrastructure. Open to opportunities in IT support and systems."
+    />
+    <link rel="canonical" href="https://adamsonb.com/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://adamsonb.com/" />
+    <meta property="og:title" content="Adamson Buliboli" />
+    <meta
+      property="og:description"
+      content="Graduate IT professional in Sydney — technical support, networking, home lab, and infrastructure."
+    />
+    <meta property="og:image" content="https://adamsonb.com/images/me-main.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Adamson Buliboli" />
+    <meta
+      name="twitter:description"
+      content="Graduate IT professional in Sydney — technical support, networking, home lab, and infrastructure."
+    />
+    <meta name="twitter:image" content="https://adamsonb.com/images/me-main.jpg" />
+
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <style>html, body { height: 100%; margin: 0; overflow-x: hidden; } #root { height: 100%; min-width: 0; }</style>
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme');
+          if (stored !== 'light') document.documentElement.classList.add('dark');
+        } catch (e) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
   </head>
 
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <!-- Cloudflare Web Analytics -->
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "a6e748c6a1b14700b4e40f01f95b4f8a"}'
+    ></script>
   </body>
 </html>

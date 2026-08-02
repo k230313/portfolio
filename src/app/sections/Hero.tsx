@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { useEffect, useState } from 'react';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
+import ViewingNow from '../components/ViewingNow';
 import { profile } from '../content/siteContent';
 
 const TYPEWRITER_KEY = 'portfolio-tagline-typed';
@@ -101,6 +102,8 @@ export default function Hero() {
                 Get in Touch
               </a>
             </div>
+
+            <ViewingNow />
           </motion.div>
         </div>
       </div>

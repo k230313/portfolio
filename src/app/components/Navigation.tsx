@@ -1,8 +1,32 @@
 import { Link, useLocation } from 'react-router';
-import { Moon, Sun, Menu, X } from 'lucide-react';
+import {
+  Moon,
+  Sun,
+  Menu,
+  X,
+  Home,
+  User,
+  FolderKanban,
+  Layers,
+  Award,
+  FileText,
+  Newspaper,
+  type LucideIcon,
+} from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { profile } from '../content/siteContent';
 import { siteNavLinks } from '../content/nav';
+import ViewingNow from './ViewingNow';
+
+const navIcons: Record<(typeof siteNavLinks)[number]['path'], LucideIcon> = {
+  '/': Home,
+  '/about': User,
+  '/projects': FolderKanban,
+  '/stack': Layers,
+  '/certifications': Award,
+  '/writeups': FileText,
+  '/blog': Newspaper,
+};
 
 interface NavigationProps {
   theme: 'light' | 'dark';
@@ -50,26 +74,31 @@ export default function Navigation({ theme, toggleTheme }: NavigationProps) {
       </Link>
 
       <nav className="flex-1 space-y-1">
-        {siteNavLinks.map(link => (
-          <Link
-            key={link.path}
-            to={link.path}
-            onClick={() => {
-              setMobileOpen(false);
-              scrollToTop();
-            }}
-            className={`block px-3 py-2.5 rounded-md text-sm transition-colors ${
-              isActiveLink(link.path)
-                ? 'bg-primary/10 text-primary font-medium'
-                : 'text-muted-foreground hover:text-foreground hover:bg-muted'
-            }`}
-          >
-            {link.label}
-          </Link>
-        ))}
+        {siteNavLinks.map(link => {
+          const Icon = navIcons[link.path];
+          return (
+            <Link
+              key={link.path}
+              to={link.path}
+              onClick={() => {
+                setMobileOpen(false);
+                scrollToTop();
+              }}
+              className={`flex items-center gap-2.5 px-3 py-2.5 rounded-md text-sm transition-colors ${
+                isActiveLink(link.path)
+                  ? 'bg-primary/10 text-primary font-medium'
+                  : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+              }`}
+            >
+              <Icon className="w-4 h-4 shrink-0" strokeWidth={1.75} aria-hidden />
+              <span>{link.label}</span>
+            </Link>
+          );
+        })}
       </nav>
 
-      <div className="mt-auto pt-6 space-y-3 border-t border-border">
+      <div className="mt-auto pt-6 space-y-4 border-t border-border">
+        <ViewingNow compact />
         <button
           type="button"
           onClick={toggleTheme}

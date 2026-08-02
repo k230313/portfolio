@@ -16,7 +16,6 @@ export type Profile = {
   email: string;
   heroImage: string;
   aboutImage: string;
-  resumePath: string;
   socialLinks: SocialLink[];
 };
 
@@ -122,7 +121,6 @@ export const profile: Profile = {
   email: 'adamson.buliboli@gmail.com',
   heroImage: '/images/me-main.jpg',
   aboutImage: '/images/me-main.jpg',
-  resumePath: '/resume.pdf',
   socialLinks: [
     { label: 'GitHub', href: 'https://github.com/k230313' },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/adamsonb/' },

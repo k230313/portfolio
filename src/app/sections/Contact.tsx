@@ -1,8 +1,9 @@
 import { motion } from 'motion/react';
-import { Github, Linkedin, Facebook, Instagram } from 'lucide-react';
+import { Github, Linkedin, Facebook, Instagram, Mail } from 'lucide-react';
 import { profile } from '../content/siteContent';
 
 const connectLinks = [
+  { label: 'Email', icon: Mail, href: () => `mailto:${profile.email}` },
   { label: 'LinkedIn', icon: Linkedin, href: () => profile.socialLinks.find(l => l.label === 'LinkedIn')?.href },
   { label: 'Facebook', icon: Facebook, href: () => profile.socialLinks.find(l => l.label === 'Facebook')?.href },
   { label: 'Instagram', icon: Instagram, href: () => profile.socialLinks.find(l => l.label === 'Instagram')?.href },
@@ -30,7 +31,8 @@ export default function Contact() {
           </h2>
           <div className="h-0.5 w-16 sm:w-24 bg-primary mx-auto mb-4 sm:mb-6" />
           <p className="text-sm sm:text-base text-muted-foreground mb-5 sm:mb-8 max-w-md mx-auto">
-            Pick a channel — happy to chat about IT support, networking, or projects.
+            Happy to chat about IT support, networking, or projects. Email me if you&apos;d like a
+            copy of my resume.
           </p>
 
           <div className="flex flex-wrap justify-center gap-3">
@@ -41,8 +43,8 @@ export default function Contact() {
                 <motion.a
                   key={label}
                   href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target={label === 'Email' ? undefined : '_blank'}
+                  rel={label === 'Email' ? undefined : 'noopener noreferrer'}
                   whileHover={{ scale: 1.06, y: -4, transition: bubbleTransition }}
                   whileTap={{ scale: 0.97 }}
                   className="inline-flex items-center gap-2 px-5 py-2.5 border border-border rounded-md bg-card shadow-sm hover:shadow-md hover:border-primary/40 transition-shadow"

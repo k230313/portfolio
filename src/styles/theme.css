@@ -17,7 +17,7 @@
   --secondary: #f5f5f5;
   --secondary-foreground: #1a1a1a;
   --muted: #f5f5f5;
-  --muted-foreground: #737373;
+  --muted-foreground: #525252;
   --accent: #10b981;
   --accent-foreground: #ffffff;
   --destructive: #ef4444;
@@ -57,7 +57,7 @@
   --secondary: #262626;
   --secondary-foreground: #f5f5f5;
   --muted: #262626;
-  --muted-foreground: #a3a3a3;
+  --muted-foreground: #c4c4c4;
   --accent: #14b8a6;
   --accent-foreground: #ffffff;
   --destructive: #dc2626;
@@ -137,6 +137,16 @@
     font-family: var(--font-body);
     background-image: radial-gradient(circle at 1px 1px, var(--border) 0.5px, transparent 0);
     background-size: 32px 32px;
+  }
+
+  /* Clear keyboard focus for links, buttons, and controls */
+  :focus {
+    outline: none;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
   }
 
   body::before {
