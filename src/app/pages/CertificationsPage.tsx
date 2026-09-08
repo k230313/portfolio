@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 import { ExternalLink } from 'lucide-react';
 import { certifications, type CertificationItem } from '../content/siteContent';
 
-const vendorOrder = ['CompTIA', 'Cisco', 'Google', 'Zendesk', 'Forage', 'Coursera'] as const;
+const vendorOrder = ['Microsoft', 'CompTIA', 'Cisco', 'Google', 'Zendesk', 'Forage', 'Coursera'] as const;
 
 function CertLogo({ src, alt }: { src?: string; alt: string }) {
   if (!src) {

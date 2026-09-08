@@ -4,6 +4,8 @@ import { blogEssays } from '../content/blogEssays';
 
 /** Short hooks written for the home preview — push recruiters to click through */
 const homeTeasers: Record<string, string> = {
+  'sc900-passed':
+    'I sat SC-900 today and passed. Not a victory lap — just what actually stuck, and what a fundamentals cert is (and isn’t) worth.',
   'sc900-reflection':
     'Job ads kept asking for Entra ID and Conditional Access — so I stopped guessing and studied them properly. What SC-900 actually taught me wasn’t what I expected.',
   'career-pivot':

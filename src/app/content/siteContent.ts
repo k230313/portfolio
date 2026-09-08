@@ -112,10 +112,10 @@ export const profile: Profile = {
   tagline: 'Graduate IT Professional',
   shortBio: 'Graduate IT professional based in Sydney, focused on networking and infrastructure.',
   heroBio:
-    'Nearly 10 years of hands-on IT experience — from computer hardware and software troubleshooting to customer-facing technical support across telecom and BPO environments. Bachelor of IT (Kent Institute Australia), with a growing focus on networking and infrastructure through CCNA study (~60% complete) and a self-hosted home lab covering server administration, virtualization, and remote systems management.',
+    'Nearly 10 years of hands-on IT experience — from computer hardware and software troubleshooting to customer-facing technical support across telecom and BPO environments. Bachelor of IT (Kent Institute Australia), Microsoft SC-900, and a growing focus on networking and infrastructure through CCNA study (~60% complete) and a self-hosted home lab covering server administration, virtualization, and remote systems management.',
   aboutBio: [
     'I’m an IT support professional with nearly a decade of experience helping customers through hosting, telecom, and BPO support roles. I focus on clear troubleshooting, accurate documentation, and keeping service quality high under volume.',
-    'I recently completed my Bachelor of Information Technology at Kent Institute Australia and I’m working toward CCNA while expanding into networking and infrastructure. Hands-on labs and a self-hosted home server help me bridge day-to-day support experience toward enterprise systems work.',
+    'I recently completed my Bachelor of Information Technology at Kent Institute Australia, earned Microsoft SC-900, and I’m working toward CCNA while expanding into networking and infrastructure. Hands-on labs and a self-hosted home server help me bridge day-to-day support experience toward enterprise systems work.',
     'Outside of support roles, I build and maintain personal projects — multi-site hosting on Ubuntu/Apache, a personal finance app with Supabase, and a private local LLM study setup — to keep learning practical and cost-effective.',
   ],
   email: 'adamson.buliboli@gmail.com',
@@ -131,7 +131,7 @@ export const profile: Profile = {
 
 export const stats = [
   { label: 'Years in Support', value: '10+' },
-  { label: 'Certifications', value: '7' },
+  { label: 'Certifications', value: '8' },
   { label: 'Projects', value: '6' },
 ];
 
@@ -254,6 +254,23 @@ export const education: EducationItem[] = [
 ];
 
 export const certifications: CertificationItem[] = [
+  {
+    name: 'Microsoft SC-900',
+    issuer: 'Microsoft',
+    issuerIcon: 'Microsoft',
+    issuerLogo: '/images/microsoft-logo.svg',
+    date: 'September 8, 2026',
+    expiryDate: 'Non-expiring',
+    credentialId: null,
+    verificationUrl:
+      'https://learn.microsoft.com/api/credentials/share/en-us/Adamson-4133/124A3F08B50C3421?sharingId',
+    skills: ['Entra ID', 'MFA', 'Conditional Access', 'Microsoft Defender', 'Microsoft Purview'],
+    status: 'completed',
+    progress: 100,
+    summary:
+      'Microsoft Security, Compliance, and Identity Fundamentals — identity, access, threat protection, and data governance concepts across Microsoft cloud services.',
+    image: '/images/microsoft-logo.svg',
+  },
   {
     name: 'Cisco CCNA',
     issuer: 'Cisco',
@@ -692,8 +709,8 @@ export const showcaseProjects = [
 ].filter(Boolean) as ProjectItem[];
 
 const homeCertNames = [
+  'Microsoft SC-900',
   'CompTIA A+',
-  'CompTIA ITF+',
   'Google IT Support Professional Certificate',
 ];
 
