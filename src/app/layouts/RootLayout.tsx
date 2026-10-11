@@ -9,17 +9,17 @@ export default function RootLayout() {
   const location = useLocation();
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
     if (typeof window !== 'undefined') {
-      const stored = localStorage.getItem('theme-v2');
+      const stored = localStorage.getItem('theme-v3');
       if (stored === 'dark' || stored === 'light') return stored;
     }
-    return 'light';
+    return 'dark';
   });
 
   useEffect(() => {
     const root = document.documentElement;
     if (theme === 'dark') root.classList.add('dark');
     else root.classList.remove('dark');
-    localStorage.setItem('theme-v2', theme);
+    localStorage.setItem('theme-v3', theme);
   }, [theme]);
 
   useEffect(() => {
