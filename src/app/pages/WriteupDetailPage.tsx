@@ -1,6 +1,5 @@
-import { motion } from 'motion/react';
-import { useParams, Link, Navigate } from 'react-router';
-import { Calendar, Clock, ArrowLeft } from 'lucide-react';
+import { Link, Navigate, useParams } from 'react-router';
+import { ArrowLeft } from 'lucide-react';
 import { allWriteups, getWriteupsByCategory } from '../content/siteContent';
 
 export default function WriteupDetailPage() {
@@ -19,73 +18,48 @@ export default function WriteupDetailPage() {
 
   return (
     <div className="min-h-screen py-16 sm:py-24">
-      <div className="grid lg:grid-cols-[1fr_260px] gap-12">
-        <motion.article
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="max-w-3xl min-w-0"
+      <article className="w-full max-w-2xl mx-auto">
+        <Link
+          to="/writeups"
+          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-10"
         >
-          <Link
-            to="/writeups"
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Technical Writeups
-          </Link>
+          <ArrowLeft className="w-4 h-4" />
+          Labs
+        </Link>
 
-          <p className="text-sm font-mono text-accent mb-3">{category}</p>
+        <p className="meta mb-3">
+          {writeup.displayDate}
+          {category ? ` · ${category}` : ''}
+          {writeup.readTime ? ` · ${writeup.readTime}` : ''}
+        </p>
 
-          <h1
-            className="text-3xl md:text-4xl mb-6 leading-tight"
-            style={{ fontFamily: 'var(--font-heading)' }}
-          >
-            {writeup.title}
-          </h1>
+        <h1 className="page-title text-3xl sm:text-4xl mb-8">{writeup.title}</h1>
 
-          <div className="flex flex-wrap items-center gap-4 mb-8 pb-6 border-b border-border text-sm text-muted-foreground">
-            <div className="flex items-center gap-2">
-              <Calendar className="w-4 h-4" />
-              <span className="font-mono">{writeup.displayDate}</span>
-            </div>
-            <span>•</span>
-            <div className="flex items-center gap-2">
-              <Clock className="w-4 h-4" />
-              <span className="font-mono">{writeup.readTime}</span>
-            </div>
-          </div>
+        <div
+          className="space-y-5 text-[1.05rem] leading-relaxed text-foreground/90 pb-10 border-b border-border [&_h2]:page-title [&_h2]:text-xl [&_h2]:mt-8 [&_h2]:mb-3 [&_p]:mb-0 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-1"
+          dangerouslySetInnerHTML={{ __html: writeup.contentHtml }}
+        />
 
-          <div
-            className="prose prose-lg max-w-none"
-            dangerouslySetInnerHTML={{ __html: writeup.contentHtml }}
-          />
-        </motion.article>
-
-        <motion.aside
-          initial={{ opacity: 0, x: 12 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="lg:sticky lg:top-24 h-fit space-y-6"
-        >
-          <div className="border border-border rounded-md p-5">
-            <h3 className="text-sm mb-3" style={{ fontFamily: 'var(--font-heading)' }}>
-              More writeups
-            </h3>
-            <ul className="space-y-2">
+        {related.length > 0 ? (
+          <nav className="pt-10" aria-label="More labs">
+            <h2 className="page-title text-xl mb-4">More labs</h2>
+            <ul className="space-y-3">
               {related.map(post => (
                 <li key={post.slug}>
                   <Link
                     to={`/writeups/${post.slug}`}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    className="group block rounded-md border border-border bg-card px-4 py-3 hover:border-primary/40 transition-colors"
                   >
-                    {post.title}
+                    <span className="page-title text-base group-hover:text-primary transition-colors">
+                      {post.title}
+                    </span>
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
-        </motion.aside>
-      </div>
+          </nav>
+        ) : null}
+      </article>
     </div>
   );
 }

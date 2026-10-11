@@ -18,8 +18,7 @@ export default function FeaturedProjects() {
         >
           <div className="flex items-end justify-between gap-4 mb-6">
             <div>
-              <h2 className="text-2xl md:text-3xl mb-1" style={{ fontFamily: 'var(--font-heading)' }}>
-                <span className="font-mono text-accent mr-2">{'>'}</span>
+              <h2 className="page-title text-2xl md:text-3xl mb-1">
                 Featured Projects
               </h2>
               <p className="text-sm text-muted-foreground">Selected work</p>
@@ -52,19 +51,16 @@ export default function FeaturedProjects() {
                           className="w-full h-full object-cover"
                         />
                       ) : (
-                        <div className="w-full h-full flex items-center justify-center text-lg text-muted-foreground font-mono px-3 text-center">
+                        <div className="w-full h-full flex items-center justify-center page-title text-lg text-muted-foreground px-3 text-center">
                           {project.coverLabel || project.title}
                         </div>
                       )}
                     </div>
 
-                    <h3
-                      className="text-base md:text-lg mb-0.5 group-hover:text-primary transition-colors leading-snug"
-                      style={{ fontFamily: 'var(--font-heading)' }}
-                    >
+                    <h3 className="page-title text-base md:text-lg mb-0.5 group-hover:text-primary transition-colors leading-snug">
                       {project.title}
                     </h3>
-                    <p className="text-xs text-accent mb-2 font-mono line-clamp-1">{project.subtitle}</p>
+                    <p className="meta text-accent mb-2 line-clamp-1">{project.subtitle}</p>
                     <p className="text-muted-foreground mb-3 text-sm line-clamp-2">{project.description}</p>
 
                     <div className="flex flex-wrap gap-1.5">

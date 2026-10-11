@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import PageHeader from '../components/PageHeader';
 import { stackCategories } from '../content/nav';
 
 export default function StackPage() {
@@ -9,16 +10,10 @@ export default function StackPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h1
-          className="text-3xl md:text-4xl mb-3"
-          style={{ fontFamily: 'var(--font-heading)' }}
-        >
-          Stack
-        </h1>
-        <p className="text-muted-foreground mb-10 max-w-2xl">
-          Tools and platforms I use across support, networking, security, infrastructure, and
-          building personal projects.
-        </p>
+        <PageHeader
+          title="Stack"
+          lede="Tools and platforms I use across support, networking, security, infrastructure, and building personal projects."
+        />
 
         <div className="space-y-8">
           {stackCategories.map((category, index) => (
@@ -29,17 +24,14 @@ export default function StackPage() {
               transition={{ duration: 0.35, delay: index * 0.04 }}
               className="border-b border-border pb-8 last:border-b-0"
             >
-              <h2
-                className="text-lg md:text-xl mb-3"
-                style={{ fontFamily: 'var(--font-heading)' }}
-              >
+              <h2 className="page-title text-lg md:text-xl mb-3">
                 {category.title}
               </h2>
               <div className="flex flex-wrap gap-2">
                 {category.items.map(item => (
                   <span
                     key={item}
-                    className="px-2.5 py-1 text-sm rounded-md bg-muted text-muted-foreground font-mono"
+                    className="px-2.5 py-1 rounded-md bg-muted meta"
                   >
                     {item}
                   </span>

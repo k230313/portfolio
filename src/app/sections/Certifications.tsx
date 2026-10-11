@@ -1,19 +1,22 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router';
 import { ExternalLink } from 'lucide-react';
-import { homeCertifications } from '../content/siteContent';
+import SectionHeading from '../components/SectionHeading';
+import { homeCertifications, inProgressCertifications } from '../content/siteContent';
 
-function CertLogo({ src, alt }: { src?: string; alt: string }) {
+function CertLogo({ src, alt, size = 'lg' }: { src?: string; alt: string; size?: 'sm' | 'lg' }) {
+  const box = size === 'sm' ? 'h-10 w-10 p-1.5' : 'h-16 w-16 p-2.5';
+
   if (!src) {
     return (
-      <div className="h-16 w-16 rounded-full bg-muted flex items-center justify-center text-xs font-mono text-muted-foreground">
+      <div className={`${size === 'sm' ? 'h-10 w-10' : 'h-16 w-16'} rounded-full bg-muted flex items-center justify-center meta shrink-0`}>
         {alt.slice(0, 2)}
       </div>
     );
   }
 
   return (
-    <div className="h-16 w-16 rounded-full overflow-hidden bg-white border border-border shadow-sm flex items-center justify-center p-2.5">
+    <div className={`${box} rounded-full overflow-hidden bg-white border border-border shadow-sm flex items-center justify-center shrink-0`}>
       <img src={src} alt={alt} className="h-full w-full object-contain" />
     </div>
   );
@@ -28,22 +31,17 @@ export default function Certifications() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <div className="flex items-end justify-between gap-4 mb-2 sm:mb-3">
-          <h2
-            className="text-2xl sm:text-3xl md:text-4xl"
-            style={{ fontFamily: 'var(--font-heading)' }}
-          >
-            <span className="font-mono text-accent mr-2">05.</span>
-            Certifications
-          </h2>
-          <Link
-            to="/certifications"
-            className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors shrink-0 pb-1"
-          >
-            See all certifications
-          </Link>
-        </div>
-        <div className="h-0.5 w-16 sm:w-24 bg-primary mb-5 sm:mb-8" />
+        <SectionHeading
+          title="Certifications"
+          action={
+            <Link
+              to="/certifications"
+              className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors"
+            >
+              See all certifications
+            </Link>
+          }
+        />
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {homeCertifications.map((cert, index) => (
@@ -64,10 +62,7 @@ export default function Certifications() {
               <div className="mb-4">
                 <CertLogo src={cert.issuerLogo} alt={`${cert.issuer} logo`} />
               </div>
-              <h3
-                className="text-base leading-snug mb-4"
-                style={{ fontFamily: 'var(--font-heading)' }}
-              >
+              <h3 className="page-title text-base leading-snug mb-4">
                 {cert.name}
               </h3>
               {cert.verificationUrl ? (
@@ -86,6 +81,26 @@ export default function Certifications() {
             </motion.div>
           ))}
         </div>
+
+        {inProgressCertifications.length > 0 ? (
+          <div className="mt-8">
+            <p className="meta mb-3">Currently studying</p>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {inProgressCertifications.map(cert => (
+                <li
+                  key={cert.name}
+                  className="flex items-center gap-3 rounded-md border border-dashed border-border bg-card/60 px-4 py-3"
+                >
+                  <CertLogo src={cert.issuerLogo} alt={`${cert.issuer} logo`} size="sm" />
+                  <div className="min-w-0">
+                    <p className="page-title text-sm leading-snug">{cert.name}</p>
+                    <p className="meta mt-0.5">{cert.date}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
       </motion.div>
     </section>
   );

@@ -14,11 +14,7 @@ export default function CertificationsPreview() {
         >
           <div className="flex items-center justify-between mb-8">
             <div>
-              <h2
-                className="text-3xl mb-2"
-                style={{ fontFamily: "var(--font-heading)" }}
-              >
-                <span className="font-mono text-accent mr-2">{">"}</span>
+              <h2 className="page-title text-3xl mb-2">
                 Recent Certifications
               </h2>
               <p className="text-muted-foreground">
@@ -52,16 +48,13 @@ export default function CertificationsPreview() {
                         className="max-h-full max-w-full object-contain"
                       />
                     ) : (
-                      <span className="text-2xl font-semibold">
+                      <span className="page-title text-2xl">
                         {cert.issuerIcon || cert.issuer}
                       </span>
                     )}
                   </div>
                   <div>
-                    <h3
-                      className="mb-1 leading-tight"
-                      style={{ fontFamily: "var(--font-heading)" }}
-                    >
+                    <h3 className="page-title mb-1 leading-tight">
                       {cert.name}
                     </h3>
                     <p className="text-sm text-muted-foreground">
@@ -73,11 +66,11 @@ export default function CertificationsPreview() {
                 <div>
                   <p className="text-sm mb-1">
                     <span className="text-muted-foreground">Issued:</span>{" "}
-                    <span className="font-mono text-accent">{cert.date}</span>
+                    <span className="meta text-accent">{cert.date}</span>
                   </p>
                   <p className="text-sm">
                     <span className="text-muted-foreground">Expires:</span>{" "}
-                    <span className="font-mono text-xs">
+                    <span className="meta">
                       {cert.expiryDate || (
                         <span className="text-muted-foreground">
                           No Expiration

@@ -20,7 +20,7 @@ export default function TagPage() {
         <div className="mb-10">
           <div className="flex items-center gap-3 mb-3">
             <Tag className="w-6 h-6 text-accent" />
-            <h1 className="text-3xl md:text-4xl capitalize" style={{ fontFamily: 'var(--font-heading)' }}>
+            <h1 className="page-title text-3xl md:text-4xl capitalize">
               {tag}
             </h1>
           </div>

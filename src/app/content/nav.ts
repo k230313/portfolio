@@ -1,12 +1,13 @@
 export const siteNavLinks = [
   { path: '/', label: 'Home' },
-  { path: '/about', label: 'About Me' },
+  { path: '/about', label: 'About' },
   { path: '/projects', label: 'Projects' },
-  { path: '/stack', label: 'Stack' },
   { path: '/certifications', label: 'Certifications' },
-  { path: '/writeups', label: 'Technical Writeups' },
+  { path: '/writeups', label: 'Labs' },
   { path: '/blog', label: 'Blog' },
 ] as const;
+
+export const mobileNavLinks = siteNavLinks.filter(link => link.path !== '/');
 
 export type StackCategory = {
   title: string;
@@ -41,11 +42,11 @@ export const stackCategories: StackCategory[] = [
   {
     title: 'Identity & Security',
     items: [
-      'Microsoft Entra ID',
+      'Microsoft Entra ID (studied for SC-900)',
       'MFA',
       'Conditional Access',
-      'Microsoft Defender',
-      'Microsoft Purview',
+      'Microsoft Defender (concepts)',
+      'Microsoft Purview (concepts)',
       'SC-900',
       'CompTIA Security+ (in progress)',
     ],

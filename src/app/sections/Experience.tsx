@@ -1,111 +1,129 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronDown } from 'lucide-react';
-import TechBadge from '../components/TechBadge';
-import { experience } from '../content/siteContent';
+import HomeSection from '../components/HomeSection';
+import SectionHeading from '../components/SectionHeading';
+import { experience, type ExperienceItem } from '../content/siteContent';
+
+const PREVIEW_COUNT = 3;
+
+function periodYears(period: string) {
+  const years = period.match(/\d{4}/g)?.map(Number) ?? [0];
+  return {
+    start: years[0] ?? 0,
+    end: years[years.length - 1] ?? 0,
+  };
+}
+
+const orderedExperience = [...experience].sort((a, b) => {
+  const aYears = periodYears(a.period);
+  const bYears = periodYears(b.period);
+  if (bYears.end !== aYears.end) return bYears.end - aYears.end;
+  return bYears.start - aYears.start;
+});
+
+function ExperienceRow({
+  item,
+  isOpen,
+  onToggle,
+}: {
+  item: ExperienceItem;
+  isOpen: boolean;
+  onToggle: () => void;
+}) {
+  return (
+    <div>
+      <button
+        type="button"
+        onClick={onToggle}
+        aria-expanded={isOpen}
+        className="w-full flex items-start justify-between gap-4 py-3.5 text-left"
+      >
+        <div className="min-w-0">
+          <h3 className="page-title text-lg md:text-xl">
+            {item.role} <span className="text-primary">@ {item.company}</span>
+          </h3>
+          <p className="meta mt-1">{item.period}</p>
+        </div>
+        <ChevronDown
+          className={`w-5 h-5 shrink-0 mt-1 text-muted-foreground transition-transform ${
+            isOpen ? 'rotate-180' : ''
+          }`}
+        />
+      </button>
+
+      <AnimatePresence initial={false}>
+        {isOpen ? (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="overflow-hidden"
+          >
+            <div className="pb-5 pt-1">
+              {item.link ? (
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-primary hover:underline mb-3 inline-block"
+                >
+                  {item.company}
+                </a>
+              ) : null}
+              <ul className="space-y-3">
+                {item.description.map(bullet => (
+                  <li key={bullet} className="text-muted-foreground">
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
+    </div>
+  );
+}
 
 export default function Experience() {
-  const [openIndex, setOpenIndex] = useState<number>(-1);
+  const [showAll, setShowAll] = useState(false);
+  const [openKey, setOpenKey] = useState<string | null>(null);
 
-  const toggle = (index: number) => {
-    setOpenIndex(prev => (prev === index ? -1 : index));
-  };
+  const preview = orderedExperience.slice(0, PREVIEW_COUNT);
+  const rest = orderedExperience.slice(PREVIEW_COUNT);
+  const visible = showAll ? orderedExperience : preview;
 
   return (
-    <section id="experience" className="py-10 sm:py-14">
+    <HomeSection id="experience">
       <div className="w-full">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="mb-5 sm:mb-8">
-            <h2
-              className="text-2xl sm:text-3xl md:text-4xl mb-2 sm:mb-3"
-              style={{ fontFamily: 'var(--font-heading)' }}
-            >
-              <span className="font-mono text-accent mr-2">03.</span>
-              Experience
-            </h2>
-            <div className="h-0.5 w-16 sm:w-24 bg-primary" />
-          </div>
+        <SectionHeading title="Experience" />
 
-          <div className="max-w-3xl divide-y divide-border border-y border-border">
-            {experience.map((item, index) => {
-              const isOpen = openIndex === index;
-              return (
-                <div key={`${item.company}-${item.role}`}>
-                  <button
-                    type="button"
-                    onClick={() => toggle(index)}
-                    aria-expanded={isOpen}
-                    className="w-full flex items-start justify-between gap-4 py-4 text-left hover:bg-muted/40 transition-colors px-1 -mx-1 rounded-md"
-                  >
-                    <div className="min-w-0">
-                      <h3
-                        className="text-lg md:text-xl"
-                        style={{ fontFamily: 'var(--font-heading)' }}
-                      >
-                        {item.role}{' '}
-                        <span className="text-primary">@ {item.company}</span>
-                      </h3>
-                      <p className="text-sm font-mono text-muted-foreground mt-1">
-                        {item.period}
-                      </p>
-                    </div>
-                    <ChevronDown
-                      className={`w-5 h-5 shrink-0 mt-1 text-muted-foreground transition-transform ${
-                        isOpen ? 'rotate-180' : ''
-                      }`}
-                    />
-                  </button>
+        <div className="w-full divide-y divide-border">
+          {visible.map(item => {
+            const key = `${item.company}-${item.role}`;
+            return (
+              <ExperienceRow
+                key={key}
+                item={item}
+                isOpen={openKey === key}
+                onToggle={() => setOpenKey(prev => (prev === key ? null : key))}
+              />
+            );
+          })}
+        </div>
 
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.25 }}
-                        className="overflow-hidden"
-                      >
-                        <div className="pb-5 pt-1 px-1">
-                          {item.link && (
-                            <a
-                              href={item.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-sm text-primary hover:underline mb-3 inline-block"
-                            >
-                              {item.company}
-                            </a>
-                          )}
-                          <ul className="space-y-3 mb-4">
-                            {item.description.map(bullet => (
-                              <li key={bullet} className="flex gap-3">
-                                <span className="text-accent font-mono mt-1">-</span>
-                                <span className="text-muted-foreground">{bullet}</span>
-                              </li>
-                            ))}
-                          </ul>
-                          {item.tech.length > 0 && (
-                            <div className="flex flex-wrap gap-2">
-                              {item.tech.map(tech => (
-                                <TechBadge key={tech} name={tech} />
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              );
-            })}
-          </div>
-        </motion.div>
+        {rest.length > 0 ? (
+          <button
+            type="button"
+            onClick={() => setShowAll(prev => !prev)}
+            className="mt-4 text-sm text-primary hover:underline"
+          >
+            {showAll ? 'Show less' : 'Full history'}
+          </button>
+        ) : null}
       </div>
-    </section>
+    </HomeSection>
   );
 }

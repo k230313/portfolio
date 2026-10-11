@@ -11,7 +11,6 @@ import WriteupDetailPage from "./pages/WriteupDetailPage";
 import BlogPage from "./pages/BlogPage";
 import BlogEssayPage from "./pages/BlogEssayPage";
 import TagPage from "./pages/TagPage";
-import GalleryPage from "./pages/GalleryPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 export const router = createBrowserRouter([
@@ -30,7 +29,6 @@ export const router = createBrowserRouter([
       { path: "blog", Component: BlogPage },
       { path: "blog/:slug", Component: BlogEssayPage },
       { path: "tags/:tag", Component: TagPage },
-      { path: "gallery", Component: GalleryPage },
       { path: "*", Component: NotFoundPage },
     ],
   },

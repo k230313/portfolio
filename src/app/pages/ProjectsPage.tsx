@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router';
 import { ArrowRight } from 'lucide-react';
+import PageHeader from '../components/PageHeader';
 import { projects } from '../content/siteContent';
 
 export default function ProjectsPage() {
@@ -11,15 +12,10 @@ export default function ProjectsPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h1
-          className="text-3xl md:text-4xl mb-3"
-          style={{ fontFamily: 'var(--font-heading)' }}
-        >
-          Projects
-        </h1>
-        <p className="text-muted-foreground mb-10 max-w-2xl">
-          Home lab, self-hosted builds, client work, and academic projects.
-        </p>
+        <PageHeader
+          title="Projects"
+          lede="Home lab, self-hosted builds, client work, and academic projects."
+        />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {projects.map((project, index) => (
@@ -34,8 +30,7 @@ export default function ProjectsPage() {
                 className="group flex items-center justify-between gap-3 rounded-lg border border-border bg-card px-4 py-3 hover:border-primary/40 transition-colors"
               >
                 <h2
-                  className="text-sm sm:text-base leading-snug group-hover:text-primary transition-colors"
-                  style={{ fontFamily: 'var(--font-heading)' }}
+                  className="page-title text-sm sm:text-base leading-snug group-hover:text-primary transition-colors"
                 >
                   {project.title}
                 </h2>

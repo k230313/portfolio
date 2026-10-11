@@ -110,13 +110,15 @@ export const profile: Profile = {
   name: 'Adamson Buliboli',
   firstName: 'Adamson',
   tagline: 'Graduate IT Professional',
-  shortBio: 'Graduate IT professional based in Sydney, focused on networking and infrastructure.',
+  shortBio: 'Graduate IT professional in Newcastle, available for Sydney. Focused on networking and infrastructure.',
   heroBio:
-    'Nearly 10 years of hands-on IT experience — from computer hardware and software troubleshooting to customer-facing technical support across telecom and BPO environments. Bachelor of IT (Kent Institute Australia), Microsoft SC-900, and a growing focus on networking and infrastructure through CCNA study (~60% complete) and a self-hosted home lab covering server administration, virtualization, and remote systems management.',
+    'I spent years fixing other people’s computers and tickets. Now I’m aiming at networking and infrastructure.',
+  heroBioSecondary:
+    'A+ and SC-900 are done. The home lab and CCNA are how I’m proving I can work on the systems too.',
   aboutBio: [
-    'I’m an IT support professional with nearly a decade of experience helping customers through hosting, telecom, and BPO support roles. I focus on clear troubleshooting, accurate documentation, and keeping service quality high under volume.',
-    'I recently completed my Bachelor of Information Technology at Kent Institute Australia, earned Microsoft SC-900, and I’m working toward CCNA while expanding into networking and infrastructure. Hands-on labs and a self-hosted home server help me bridge day-to-day support experience toward enterprise systems work.',
-    'Outside of support roles, I build and maintain personal projects — multi-site hosting on Ubuntu/Apache, a personal finance app with Supabase, and a private local LLM study setup — to keep learning practical and cost-effective.',
+    'I came up through customer support and on-site computer work in the Philippines — chat and tickets at TTEC, TDCX, and Continuum, a stretch of hosting support at one.com, and hardware jobs on the side.',
+    'I finished a Bachelor of IT at Kent in 2026. CompTIA A+ and Microsoft SC-900 are done. I’m studying CCNA and Security+, and I run a small home lab so the study isn’t only on paper.',
+    'That lab hosts this site. I also built a campus event app for my capstone, a client real estate site on the same stack, a finance tracker I actually use, and a local LLM setup for CCNA study.',
   ],
   email: 'adamson.buliboli@gmail.com',
   heroImage: '/images/me-main.jpg',
@@ -131,8 +133,8 @@ export const profile: Profile = {
 
 export const stats = [
   { label: 'Years in Support', value: '10+' },
-  { label: 'Certifications', value: '8' },
-  { label: 'Projects', value: '6' },
+  { label: 'Certifications', value: '5' },
+  { label: 'Projects', value: '5' },
 ];
 
 export const aboutSkillCards = [
@@ -352,46 +354,17 @@ export const certifications: CertificationItem[] = [
     name: 'Zendesk Customer Service Professional Certificate',
     issuer: 'Zendesk',
     issuerIcon: 'Zendesk',
+    issuerLogo: '/images/zendesk-logo.svg',
     date: 'Completed',
     expiryDate: null,
     credentialId: null,
-    verificationUrl: null,
+    verificationUrl:
+      'https://www.linkedin.com/learning/certificates/f4e54cadaf1fd3f849bd6543aad59698d00de900c1b23d1e4fb01af3f549f947?u=76085122',
     skills: ['Customer Service', 'Ticketing', 'Support Operations'],
     status: 'completed',
     progress: 100,
     summary: 'Professional certificate covering Zendesk customer service workflows and support best practices.',
-    image: '/images/google.png',
-  },
-  {
-    name: 'Commonwealth Bank - Introduction to Cybersecurity Job Simulation',
-    issuer: 'Forage',
-    issuerIcon: 'Forage',
-    issuerLogo: '/images/foragelogo.webp',
-    date: 'Completed',
-    expiryDate: null,
-    credentialId: null,
-    verificationUrl: null,
-    skills: ['Cybersecurity', 'Problem Solving', 'Banking Environment'],
-    status: 'completed',
-    progress: 100,
-    summary:
-      'Completed a practical job simulation focused on cybersecurity fundamentals and problem-solving in a banking environment.',
-    image: '/images/commbank.png',
-  },
-  {
-    name: 'University of Michigan - Programming for Everybody (Python)',
-    issuer: 'Coursera',
-    issuerIcon: 'Python',
-    issuerLogo: '/images/coursera.svg',
-    date: 'Completed',
-    expiryDate: null,
-    credentialId: null,
-    verificationUrl: 'https://coursera.org/share/60b3190c65691b7211ee03be83534ed1',
-    skills: ['Python', 'Programming Fundamentals'],
-    status: 'completed',
-    progress: 100,
-    summary: 'Learned programming fundamentals in Python, building functional programs from scratch.',
-    image: '/images/python.png',
+    image: '/images/zendesk-logo.svg',
   },
 ];
 
@@ -460,39 +433,6 @@ export const projects: ProjectItem[] = [
     relatedBlogSlugs: ['homelab-setup', 'winserver', 'win10', 'ad_ds', 'manage_users'],
   },
   {
-    slug: 'personal-portfolio-website',
-    title: 'Personal Portfolio Website',
-    subtitle: 'Self-hosted portfolio and blog',
-    description:
-      'Personal portfolio and technical blog self-hosted on Ubuntu/Apache and managed securely over Tailscale.',
-    featured: true,
-    featuredOnHome: true,
-    status: 'completed',
-    date: '2025',
-    duration: '2025',
-    readingTime: '3 min read',
-    tech: ['React', 'Vite', 'TypeScript', 'Tailwind CSS', 'Apache', 'Ubuntu', 'Tailscale'],
-    coverImage: '/images/portpic.png',
-    links: {
-      demo: 'https://adamsonb.com',
-      github: 'https://github.com/k230313/portfolio',
-    },
-    summary: {
-      problem:
-        'I needed a portfolio that could present my experience, labs, and certifications while giving me hands-on practice running my own site.',
-      solution:
-        'Built a modern React portfolio and deployed it to a self-managed Ubuntu server behind Apache, with Tailscale for secure administration.',
-      outcome:
-        'A live portfolio that doubles as a practical self-hosting project and a place to publish technical writeups.',
-    },
-    detailBody: [
-      'This site is both a portfolio and an infrastructure exercise — publishing my work while managing deployment, hosting, and updates myself.',
-      'The stack combines a Vite/React frontend with self-managed hosting so content publishing and systems administration stay part of the workflow.',
-      'GitHub: https://github.com/k230313/portfolio',
-    ],
-    screenshots: [],
-  },
-  {
     slug: 'campus-event-discovery-app',
     title: 'Campus Event Discovery App',
     subtitle: 'Capstone project for discovering and managing campus events',
@@ -552,16 +492,16 @@ export const projects: ProjectItem[] = [
   {
     slug: 'personal-finance-app',
     title: 'Personal Finance Web App',
-    subtitle: 'Auth-backed finance tracker built with AI-assisted development',
+    subtitle: 'Auth-backed tracker I use instead of a subscription app',
     description:
-      'Personal finance web app with authentication and a secure Supabase backend — vibe-coded to replace subscription tools that lacked the features I needed.',
+      'Personal finance web app with authentication and a Supabase backend — built to replace paid tools that didn’t fit how I budget.',
     featured: true,
     featuredOnHome: true,
     status: 'ongoing',
     date: '2025',
     duration: '2025 - Present',
     readingTime: '3 min read',
-    tech: ['React', 'Supabase', 'Authentication', 'AI-assisted development'],
+    tech: ['React', 'Supabase', 'Authentication'],
     coverLabel: 'Personal Tool',
     links: {
       demo: null,
@@ -571,13 +511,13 @@ export const projects: ProjectItem[] = [
       problem:
         'Existing finance apps lacked the features I needed and came with ongoing subscription costs.',
       solution:
-        'Designed functionality in plain language and iterated with AI tools to build an authenticated web app on a secure Supabase database backend.',
+        'Designed the features I actually wanted and built an authenticated web app on a Supabase backend.',
       outcome:
-        'A custom finance tracker tailored to my workflow, built as both a practical tool and a modern web development exercise.',
+        'A finance tracker I use myself — and a running project I keep extending.',
     },
     detailBody: [
-      'This project started from a practical gap: I wanted finance tracking without paying for tools that did not fit how I work.',
-      'I used an AI-assisted (“vibe-coded”) workflow — describing features, reviewing output, and iterating — while keeping authentication and data storage on Supabase.',
+      'This started as a practical gap: I wanted finance tracking without paying for a tool that did not match how I work.',
+      'I keep adding to it, which is the point — it is a live personal tool, not a one-week demo.',
     ],
     screenshots: [],
   },
@@ -587,8 +527,8 @@ export const projects: ProjectItem[] = [
     subtitle: 'Private CCNA study assistant with Ollama and Open WebUI',
     description:
       'Local LLM setup using Ollama and Open WebUI as a private, offline CCNA study assistant.',
-    featured: false,
-    featuredOnHome: false,
+    featured: true,
+    featuredOnHome: true,
     status: 'ongoing',
     date: '2025',
     duration: '2025 - Present',
@@ -605,11 +545,11 @@ export const projects: ProjectItem[] = [
       solution:
         'Set up a local LLM environment with Ollama and Open WebUI to keep study assistance private and available offline.',
       outcome:
-        'A personal study assistant that also deepens understanding of the underlying local-AI stack.',
+        'A personal study assistant that also teaches me how inference tooling fits a self-hosted stack.',
     },
     detailBody: [
-      'This lab prioritises privacy, offline access, and cost savings over cloud-based study tools.',
-      'Running models locally also helps me learn how inference tooling fits into a self-hosted environment.',
+      'This lab is about privacy, offline access, and not paying for a study chatbot.',
+      'Running models locally also means I have to keep the host healthy — same skill as the rest of the home lab.',
     ],
     screenshots: [],
   },
@@ -699,13 +639,14 @@ export function getWriteupsByCategory() {
 
 export const featuredProjects = projects.filter(project => project.featured);
 
-export const homeProjects = projects.filter(project => project.featuredOnHome).slice(0, 4);
+export const homeProjects = projects.filter(project => project.featuredOnHome);
 
-/** Three showcase cards for the home fan: left, center (home server), right */
 export const showcaseProjects = [
-  projects.find(project => project.slug === 'personal-portfolio-website'),
   projects.find(project => project.slug === 'home-lab'),
   projects.find(project => project.slug === 'campus-event-discovery-app'),
+  projects.find(project => project.slug === 'evans-real-estate-website'),
+  projects.find(project => project.slug === 'personal-finance-app'),
+  projects.find(project => project.slug === 'local-llm-study-environment'),
 ].filter(Boolean) as ProjectItem[];
 
 const homeCertNames = [
@@ -717,5 +658,7 @@ const homeCertNames = [
 export const homeCertifications = homeCertNames
   .map(name => certifications.find(cert => cert.name === name))
   .filter(Boolean) as CertificationItem[];
+
+export const inProgressCertifications = certifications.filter(cert => cert.status === 'in-progress');
 
 export const recentCertifications = certifications.slice(0, 3);

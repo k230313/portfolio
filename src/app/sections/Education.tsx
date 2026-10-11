@@ -1,101 +1,30 @@
-import { motion } from "motion/react";
-import { GraduationCap, Award } from "lucide-react";
-import Card from "../components/Card";
-import { education } from "../content/siteContent";
+import HomeSection from '../components/HomeSection';
+import SectionHeading from '../components/SectionHeading';
+import { education } from '../content/siteContent';
 
 export default function Education() {
   return (
-    <section id="education" className="py-10 sm:py-14 -mx-4 sm:-mx-6 px-4 sm:px-6 bg-muted/30">
-      <div className="w-full">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="flex items-end justify-between gap-6 mb-2 sm:mb-3">
-            <h2
-              className="text-2xl sm:text-3xl md:text-4xl"
-              style={{ fontFamily: "var(--font-heading)" }}
-            >
-              <span className="font-mono text-accent mr-2">04.</span>
-              Education
-            </h2>
-          </div>
-          <div className="h-0.5 w-16 sm:w-24 bg-primary mb-5 sm:mb-8" />
-
-          <div className="grid md:grid-cols-2 gap-6 items-stretch">
-            {education.map((item) => (
-              <motion.div
-                key={`${item.degree}-${item.period}`}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4 }}
-                className="h-full"
-              >
-                <Card className="h-full flex flex-col">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0">
-                      {item.logo ? (
-                        <img
-                          src={item.logo}
-                          alt={item.institution}
-                          className="h-12 w-12 object-contain"
-                        />
-                      ) : (
-                        <div className="p-3 rounded-lg bg-primary/10">
-                          <GraduationCap className="w-6 h-6 text-primary" />
-                        </div>
-                      )}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h3
-                        className="mb-1 text-lg leading-snug min-h-[2.75rem]"
-                        style={{ fontFamily: "var(--font-heading)" }}
-                      >
-                        {item.degree}
-                      </h3>
-                      <p className="text-sm text-muted-foreground mb-1">
-                        {item.link ? (
-                          <a
-                            href={item.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="hover:underline"
-                          >
-                            {item.institution}
-                          </a>
-                        ) : (
-                          item.institution
-                        )}
-                      </p>
-                      <div className="text-sm">
-                        <span className="font-mono text-accent">
-                          {item.period}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {item.highlights && item.highlights.length > 0 && (
-                    <ul className="space-y-2 mt-4">
-                      {item.highlights.map((highlight) => (
-                        <li key={highlight} className="flex items-start gap-2">
-                          <Award className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
-                          <span className="text-sm text-muted-foreground">
-                            {highlight}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      </div>
-    </section>
+    <HomeSection id="education">
+      <SectionHeading title="Education" />
+      <ul className="space-y-5">
+        {education.map(item => (
+          <li key={item.degree} className="flex items-start gap-3">
+            {item.logo ? (
+              <img
+                src={item.logo}
+                alt=""
+                className="h-8 w-8 mt-0.5 object-contain shrink-0"
+              />
+            ) : null}
+            <div className="min-w-0">
+              <h3 className="page-title text-lg">{item.degree}</h3>
+              <p className="meta mt-1">
+                {item.institution} · {item.period}
+              </p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </HomeSection>
   );
 }
