@@ -1,4 +1,132 @@
 @layer components {
+  /* Shared lab writeup body — used by WriteupDetailPage */
+  .writeup-content h2 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .writeup-content h2:first-child {
+    margin-top: 0;
+  }
+
+  .writeup-content h3 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .writeup-content p {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .writeup-content ul,
+  .writeup-content ol {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+    padding-left: 1.35rem;
+  }
+
+  .writeup-content ul {
+    list-style: disc;
+  }
+
+  .writeup-content ol {
+    list-style: decimal;
+  }
+
+  .writeup-content li {
+    margin-top: 0.35rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .writeup-content a {
+    color: var(--primary);
+    text-decoration: underline;
+  }
+
+  .writeup-content strong {
+    font-weight: 600;
+  }
+
+  .writeup-content code {
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+    background-color: var(--muted);
+    color: var(--foreground);
+    padding: 0.15rem 0.4rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--border);
+  }
+
+  .writeup-content pre,
+  .writeup-content .highlight {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .writeup-content pre,
+  .writeup-content .highlight pre {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    line-height: 1.55;
+    background-color: color-mix(in oklab, var(--muted) 85%, var(--foreground) 8%);
+    color: var(--foreground);
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    padding: 0.9rem 1rem;
+    overflow-x: auto;
+    tab-size: 4;
+  }
+
+  .writeup-content pre code,
+  .writeup-content .highlight pre code {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+    border-radius: 0;
+  }
+
+  /* Normalize Hugo-era highlight inline colors to theme */
+  .writeup-content .highlight pre[style] {
+    background-color: color-mix(in oklab, var(--muted) 85%, var(--foreground) 8%) !important;
+    color: var(--foreground) !important;
+  }
+
+  .writeup-content img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 1rem 0 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+  }
+
+  .writeup-content hr {
+    margin: 1.75rem 0;
+    border: 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .writeup-content blockquote {
+    border-left: 3px solid var(--primary);
+    padding-left: 1rem;
+    margin: 1.25rem 0;
+    color: var(--muted-foreground);
+  }
+
+  .writeup-content blockquote p {
+    margin: 0.35rem 0;
+  }
+
   .prose {
     max-width: 65ch;
   }
@@ -50,13 +178,15 @@
   }
 
   .prose pre {
-    background-color: var(--card);
+    font-family: var(--font-mono);
+    background-color: var(--muted);
     border: 1px solid var(--border);
     border-radius: 0.5rem;
-    padding: 1rem;
+    padding: 0.875rem 1rem;
     overflow-x: auto;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1.25rem;
+    line-height: 1.55;
   }
 
   .prose pre code {
@@ -64,6 +194,22 @@
     padding: 0;
     border-radius: 0;
     font-size: 0.875rem;
+    color: var(--foreground);
+  }
+
+  .prose img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 1.25rem 0;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+  }
+
+  .prose hr {
+    margin: 2rem 0;
+    border: 0;
+    border-top: 1px solid var(--border);
   }
 
   .prose a {

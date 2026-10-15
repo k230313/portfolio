@@ -114,7 +114,7 @@ export const profile: Profile = {
   heroBio:
     'I spent years fixing other people’s computers and tickets. Now I’m aiming at networking and infrastructure.',
   heroBioSecondary:
-    'A+ and SC-900 are done. The home lab and CCNA are how I’m proving I can work on the systems too.',
+    'A+ and SC-900 are done. The home lab, CCNA, and Security+ are how I’m proving I can work on the systems too.',
   aboutBio: [
     'I came up through customer support and on-site computer work in the Philippines — chat and tickets at TTEC, TDCX, and Continuum, a stretch of hosting support at one.com, and hardware jobs on the side.',
     'I finished a Bachelor of IT at Kent in 2026. CompTIA A+ and Microsoft SC-900 are done. I’m studying CCNA and Security+, and I run a small home lab so the study isn’t only on paper.',
@@ -623,6 +623,10 @@ export const writeupCategories: WriteupCategory[] = [
   {
     title: 'Active Directory',
     slugs: ['ad_ds', 'manage_users'],
+  },
+  {
+    title: 'Splunk',
+    slugs: ['splunk-stage-01'],
   },
 ];
 

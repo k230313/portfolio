@@ -9,7 +9,7 @@ export default function WriteupsPage() {
     <div className="min-h-screen py-16 sm:py-24">
       <PageHeader
         title="Labs"
-        lede="Step-by-step notes from the home lab — virtualization, Windows Server, and Active Directory."
+        lede="Step-by-step notes from the home lab — virtualization, Windows Server, Active Directory, and Splunk."
       />
 
       <div className="space-y-10">

@@ -36,7 +36,7 @@ export default function WriteupDetailPage() {
         <h1 className="page-title text-3xl sm:text-4xl mb-8">{writeup.title}</h1>
 
         <div
-          className="space-y-5 text-[1.05rem] leading-relaxed text-foreground/90 pb-10 border-b border-border [&_h2]:page-title [&_h2]:text-xl [&_h2]:mt-8 [&_h2]:mb-3 [&_p]:mb-0 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-1"
+          className="writeup-content text-[1.05rem] leading-relaxed text-foreground/90 pb-10 border-b border-border"
           dangerouslySetInnerHTML={{ __html: writeup.contentHtml }}
         />
 
