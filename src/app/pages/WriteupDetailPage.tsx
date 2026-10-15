@@ -7,7 +7,7 @@ export default function WriteupDetailPage() {
   const writeup = allWriteups.find(post => post.slug === slug);
 
   if (!writeup) {
-    return <Navigate to="/writeups" replace />;
+    return <Navigate to="/labs" replace />;
   }
 
   const category =
@@ -20,7 +20,7 @@ export default function WriteupDetailPage() {
     <div className="min-h-screen py-16 sm:py-24">
       <article className="w-full max-w-2xl mx-auto">
         <Link
-          to="/writeups"
+          to="/labs"
           className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-10"
         >
           <ArrowLeft className="w-4 h-4" />
@@ -47,7 +47,7 @@ export default function WriteupDetailPage() {
               {related.map(post => (
                 <li key={post.slug}>
                   <Link
-                    to={`/writeups/${post.slug}`}
+                    to={`/labs/${post.slug}`}
                     className="group block rounded-md border border-border bg-card px-4 py-3 hover:border-primary/40 transition-colors"
                   >
                     <span className="page-title text-base group-hover:text-primary transition-colors">

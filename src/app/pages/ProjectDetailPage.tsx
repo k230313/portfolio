@@ -113,12 +113,12 @@ export default function ProjectDetailPage() {
         ) : null}
 
         {relatedWriteups.length > 0 ? (
-          <nav className="pt-8 border-t border-border" aria-label="Related writeups">
+          <nav className="pt-8 border-t border-border" aria-label="Related labs">
             <h2 className="page-title text-xl mb-4">Writeups</h2>
             <ul className="space-y-2">
               {relatedWriteups.map(post => (
                 <li key={post.slug}>
-                  <Link to={`/writeups/${post.slug}`} className="text-primary hover:underline">
+                  <Link to={`/labs/${post.slug}`} className="text-primary hover:underline">
                     {post.title}
                   </Link>
                 </li>

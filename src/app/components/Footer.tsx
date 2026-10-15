@@ -1,7 +1,6 @@
 import { profile } from '../content/siteContent';
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
   const github = profile.socialLinks.find(link => link.label === 'GitHub')?.href;
   const linkedIn = profile.socialLinks.find(link => link.label === 'LinkedIn')?.href;
 
@@ -9,7 +8,7 @@ export default function Footer() {
     <footer className="mt-12 sm:mt-16">
       <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 py-8">
         <p className="meta">
-          © {currentYear} {profile.name}
+          © 2025 {profile.name}
           {linkedIn ? (
             <>
               {' · '}
@@ -31,7 +30,6 @@ export default function Footer() {
             Email
           </a>
         </p>
-        <p className="meta mt-2">Design inspired by Bryl Lim.</p>
       </div>
     </footer>
   );

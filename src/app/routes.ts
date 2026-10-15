@@ -1,4 +1,5 @@
-import { createBrowserRouter } from "react-router";
+import { createElement } from "react";
+import { createBrowserRouter, Navigate, useParams } from "react-router";
 import RootLayout from "./layouts/RootLayout";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
@@ -13,6 +14,14 @@ import BlogEssayPage from "./pages/BlogEssayPage";
 import TagPage from "./pages/TagPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
+function WriteupsToLabsRedirect() {
+  const { slug } = useParams();
+  return createElement(Navigate, {
+    to: slug ? `/labs/${slug}` : "/labs",
+    replace: true,
+  });
+}
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -24,8 +33,10 @@ export const router = createBrowserRouter([
       { path: "projects/:slug", Component: ProjectDetailPage },
       { path: "stack", Component: StackPage },
       { path: "certifications", Component: CertificationsPage },
-      { path: "writeups", Component: WriteupsPage },
-      { path: "writeups/:slug", Component: WriteupDetailPage },
+      { path: "labs", Component: WriteupsPage },
+      { path: "labs/:slug", Component: WriteupDetailPage },
+      { path: "writeups", Component: WriteupsToLabsRedirect },
+      { path: "writeups/:slug", Component: WriteupsToLabsRedirect },
       { path: "blog", Component: BlogPage },
       { path: "blog/:slug", Component: BlogEssayPage },
       { path: "tags/:tag", Component: TagPage },

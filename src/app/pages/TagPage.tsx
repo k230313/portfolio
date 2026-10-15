@@ -25,18 +25,18 @@ export default function TagPage() {
             </h1>
           </div>
           <p className="text-muted-foreground">
-            {filteredPosts.length} {filteredPosts.length === 1 ? 'writeup' : 'writeups'}
+            {filteredPosts.length} {filteredPosts.length === 1 ? 'lab' : 'labs'}
           </p>
         </div>
 
         {filteredPosts.length === 0 ? (
           <div>
-            <p className="text-muted-foreground mb-4">No writeups with this tag.</p>
+            <p className="text-muted-foreground mb-4">No labs with this tag.</p>
             <Link
-              to="/writeups"
+              to="/labs"
               className="inline-flex items-center gap-2 text-primary hover:underline text-sm"
             >
-              All writeups
+              All labs
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -45,7 +45,7 @@ export default function TagPage() {
             {filteredPosts.map(post => (
               <li key={post.slug}>
                 <Link
-                  to={`/writeups/${post.slug}`}
+                  to={`/labs/${post.slug}`}
                   className="block rounded-md border border-border bg-card px-4 py-3 text-sm hover:border-primary/40 hover:text-primary transition-colors"
                 >
                   {post.title}

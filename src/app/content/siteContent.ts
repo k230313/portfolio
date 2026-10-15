@@ -609,24 +609,24 @@ export type WriteupCategory = {
 /** Topic groups for the Technical Writeups index (add new slugs here as you publish) */
 export const writeupCategories: WriteupCategory[] = [
   {
+    title: 'Active Directory',
+    slugs: ['ad_ds', 'manage_users'],
+  },
+  {
     title: 'Homelab',
     slugs: ['homelab-setup'],
   },
   {
-    title: 'Windows Server',
-    slugs: ['winserver'],
+    title: 'Splunk',
+    slugs: ['splunk-stage-01'],
   },
   {
     title: 'Windows Client',
     slugs: ['win10'],
   },
   {
-    title: 'Active Directory',
-    slugs: ['ad_ds', 'manage_users'],
-  },
-  {
-    title: 'Splunk',
-    slugs: ['splunk-stage-01'],
+    title: 'Windows Server',
+    slugs: ['winserver'],
   },
 ];
 

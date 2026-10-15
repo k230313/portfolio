@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion } from 'motion/react';
 import { Link } from 'react-router';
 import { LayoutGrid, List } from 'lucide-react';
 import { blogEssays } from '../content/blogEssays';
@@ -11,7 +12,12 @@ export default function BlogPage() {
 
   return (
     <div className="min-h-screen py-16 sm:py-24">
-      <div className="w-full">
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="w-full"
+      >
         <header className="mb-8">
           <div className="flex items-start justify-between gap-4">
             <h1 className="page-title text-3xl md:text-4xl">Blog</h1>
@@ -52,23 +58,37 @@ export default function BlogPage() {
 
         {view === 'list' ? (
           <ul className="divide-y divide-border">
-            {blogEssays.map(post => (
-              <li key={post.slug}>
+            {blogEssays.map((post, index) => (
+              <motion.li
+                key={post.slug}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.08 + index * 0.04 }}
+              >
                 <Link
                   to={`/blog/${post.slug}`}
                   className="group flex flex-col sm:flex-row gap-5 sm:gap-6 py-8 sm:py-10"
                 >
-                  {post.coverImage ? (
-                    <div className="w-full sm:w-[135px] shrink-0">
-                      <div className="w-full sm:w-[135px] h-[180px] sm:h-[90px] rounded-lg overflow-hidden bg-muted">
+                  <div
+                    className={`w-full sm:w-[135px] shrink-0 ${
+                      post.coverImage ? '' : 'hidden sm:block'
+                    }`}
+                    aria-hidden={!post.coverImage}
+                  >
+                    <div
+                      className={`w-full sm:w-[135px] h-[180px] sm:h-[90px] rounded-lg overflow-hidden ${
+                        post.coverImage ? 'bg-muted' : ''
+                      }`}
+                    >
+                      {post.coverImage ? (
                         <ImageWithFallback
                           src={post.coverImage}
                           alt=""
                           className="w-full h-full object-cover"
                         />
-                      </div>
+                      ) : null}
                     </div>
-                  ) : null}
+                  </div>
 
                   <div className="min-w-0 flex-1">
                     <time dateTime={post.date} className="meta block mb-2">
@@ -83,23 +103,32 @@ export default function BlogPage() {
                     <p className="meta">{post.readLabel}</p>
                   </div>
                 </Link>
-              </li>
+              </motion.li>
             ))}
           </ul>
         ) : (
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10 pt-8">
-            {blogEssays.map(post => (
-              <li key={post.slug}>
+            {blogEssays.map((post, index) => (
+              <motion.li
+                key={post.slug}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.08 + index * 0.04 }}
+              >
                 <Link to={`/blog/${post.slug}`} className="group block">
-                  {post.coverImage ? (
-                    <div className="aspect-[3/2] rounded-lg overflow-hidden bg-muted mb-4">
+                  <div
+                    className={`aspect-[3/2] rounded-lg overflow-hidden mb-4 ${
+                      post.coverImage ? 'bg-muted' : 'bg-muted/40'
+                    }`}
+                  >
+                    {post.coverImage ? (
                       <ImageWithFallback
                         src={post.coverImage}
                         alt=""
                         className="w-full h-full object-cover"
                       />
-                    </div>
-                  ) : null}
+                    ) : null}
+                  </div>
                   <time dateTime={post.date} className="meta block mb-2">
                     {post.displayDate}
                   </time>
@@ -111,11 +140,11 @@ export default function BlogPage() {
                   </p>
                   <p className="meta">{post.readLabel}</p>
                 </Link>
-              </li>
+              </motion.li>
             ))}
           </ul>
         )}
-      </div>
+      </motion.div>
     </div>
   );
 }

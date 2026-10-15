@@ -3,7 +3,7 @@ export const siteNavLinks = [
   { path: '/about', label: 'About' },
   { path: '/projects', label: 'Projects' },
   { path: '/certifications', label: 'Certifications' },
-  { path: '/writeups', label: 'Labs' },
+  { path: '/labs', label: 'Labs' },
   { path: '/blog', label: 'Blog' },
 ] as const;
 

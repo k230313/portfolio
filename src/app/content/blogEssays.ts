@@ -42,6 +42,7 @@ export const blogEssays: BlogEssay[] = [
     readLabel: 'Read · 3 min',
     excerpt:
       'I picked SC-900 because job ads kept mentioning Entra ID, MFA, and Conditional Access. What I learned surprised me.',
+    coverImage: '/images/StockCake-Job_Search_Stress-1188540-medium.jpg',
     contentHtml: paragraphs(
       'I picked SC-900 almost out of necessity. I was deep into job applications, and I kept noticing the same handful of terms showing up again and again in the job ads I was reading — Entra ID, MFA, Conditional Access, identity and access management. I\'d heard of most of these, in the loose way you hear about things adjacent to your field, but I couldn\'t have explained any of them properly if asked. So I decided to actually learn them properly instead of hoping nobody would ask.',
       'What surprised me first was how much of security is really about identity, not just "firewalls and antivirus," which is the mental image I had going in. A huge amount of what SC-900 covers is about proving who someone is and what they\'re allowed to touch — MFA, Conditional Access policies, identity governance — rather than the more dramatic "hacker vs. firewall" picture most people (including past me) associate with cybersecurity. It\'s less cinematic than I expected, and more foundational than I expected.',
@@ -58,6 +59,7 @@ export const blogEssays: BlogEssay[] = [
     readLabel: 'Read · 4 min',
     excerpt:
       'Nearly a decade in support roles taught me how to explain hard things simply. Now I\'m pivoting toward infrastructure — and building the proof myself.',
+    coverImage: '/images/StockCake-Career_Transformation_Journey-3654716-medium.jpg',
     contentHtml: paragraphs(
       'For most of my career, my job title has said some version of "customer service" or "technical support." Technical support representative, customer care associate — different companies, different logos, but a fairly consistent thread running through nearly a decade of work: someone has a problem, and my job is to fix it, quickly and clearly, without making them feel stupid for not understanding it themselves.',
       'I don\'t regret any of it. If anything, it\'s given me something I don\'t think I\'d have gotten from a more technical-only path from the start: a genuine, practiced ability to explain complicated things simply, and a real understanding of what it\'s like to be on the other end of a broken system, frustrated and just wanting it to work again. That\'s not nothing. A lot of technically brilliant people are bad at explaining what they know, and I\'ve had a decade of forced practice at exactly that.',
@@ -93,6 +95,7 @@ export const blogEssays: BlogEssay[] = [
     readLabel: 'Read · 3 min',
     excerpt:
       'A customer\'s website and email went down after domain changes. Jumping to quick fixes almost cost me the real answer.',
+    coverImage: '/images/dns.jpg',
     contentHtml: paragraphs(
       'Early in my time doing hosting support, I got a case that\'s stuck with me since — a customer\'s website had gone down, and their email had stopped receiving messages at the same time, right after they\'d made some changes to their domain settings.',
       'My first instinct, like most people\'s, was to reach for the obvious fixes. Restart the service. Reapply default settings. See if it just needed time to sort itself out. None of that worked, and I understood why pretty quickly: those fixes assume the problem is somewhere in the application layer, but this wasn\'t an application problem. It was a DNS problem, and DNS doesn\'t care how many times you restart a service — if the records are wrong, the records are wrong.',
