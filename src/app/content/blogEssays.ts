@@ -16,6 +16,23 @@ function paragraphs(...blocks: string[]): string {
 
 export const blogEssays: BlogEssay[] = [
   {
+    slug: 'why-im-learning-splunk',
+    title: "Why I'm Learning Splunk",
+    date: '2026-10-17',
+    displayDate: 'Oct 17, 2026',
+    readTime: '3 min read',
+    readLabel: 'Read · 3 min',
+    excerpt:
+      'Splunk keeps showing up whenever I read about security and monitoring. I got tired of only recognizing the name — so I stood it up in the lab and started shipping real logs into it.',
+    coverImage: '/images/blog-splunk-logo.jpg',
+    contentHtml: paragraphs(
+      'Whenever I read about security monitoring, incident response, or how teams actually investigate weird behaviour on a network, Splunk tends to show up. SIEM, log analysis, searching across hosts — the name is everywhere enough that "I\'ve heard of it" stopped feeling useful. I wanted to know what it actually feels like to use.',
+      'So I treated it the same way I treated SC-900 and Active Directory: stop reading about it and put it on a VM. Stage 01 was install Splunk, ingest <code>auth.log</code>, and find a failed SSH login I\'d caused on purpose. Stage 02 was the part that felt closer to a real environment — Universal Forwarder on my web server, Apache logs for adamsonb.com shipping across the LAN into Splunk. The first search returned zero events because I\'d monitored an empty default <code>access.log</code> while the site was writing to <code>adamsonb_access.log</code>. Frustrating for five minutes. Useful forever.',
+      'I\'m aiming at IT support roles day to day — tickets, troubleshooting, keeping things running. Security is a field I want to grow into over time, not a title I\'m pretending I already hold. Standing up Splunk doesn\'t make me a SOC analyst. It does mean I can talk about receiving ports, forwarders, sourcetypes, and searching live traffic from something I built myself, which is a better place to start than a logo I only recognize from articles.',
+      'Next is a simple dashboard and an alert on those Apache events. Keep studying Security+. Keep building the lab. Keep getting better at the support work in front of me while I learn the monitoring side in the background.',
+    ),
+  },
+  {
     slug: 'sc900-passed',
     title: "I Passed SC-900. Here's What Actually Stuck",
     date: '2026-09-08',

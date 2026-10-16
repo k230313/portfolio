@@ -51,7 +51,20 @@ function groupByVendor(items: CertificationItem[]) {
   return ordered;
 }
 
-function CertRow({ cert, index }: { cert: CertificationItem; index: number }) {
+function certSortTime(date: string) {
+  const parsed = Date.parse(date);
+  return Number.isNaN(parsed) ? 0 : parsed;
+}
+
+function CertRow({
+  cert,
+  index,
+  showNew = false,
+}: {
+  cert: CertificationItem;
+  index: number;
+  showNew?: boolean;
+}) {
   return (
     <motion.li
       key={cert.name}
@@ -67,8 +80,13 @@ function CertRow({ cert, index }: { cert: CertificationItem; index: number }) {
     >
       <CertLogo src={cert.issuerLogo} alt={`${cert.issuer} logo`} />
       <div className="min-w-0 flex-1">
-        <p className="page-title text-sm leading-snug truncate" title={cert.name}>
-          {cert.name}
+        <p className="page-title text-sm leading-snug flex items-baseline gap-2" title={cert.name}>
+          <span className="truncate">{cert.name}</span>
+          {showNew ? (
+            <span className="text-[0.65rem] font-semibold uppercase tracking-wide text-red-600 dark:text-red-400 shrink-0">
+              New
+            </span>
+          ) : null}
         </p>
         <p className="meta mt-0.5">{cert.status === 'in-progress' ? cert.date : cert.date}</p>
       </div>
@@ -95,6 +113,10 @@ function CertRow({ cert, index }: { cert: CertificationItem; index: number }) {
 export default function CertificationsPage() {
   const completed = certifications.filter(cert => cert.status === 'completed');
   const groups = groupByVendor(completed);
+  const newestCompletedName = completed.reduce<CertificationItem | null>((latest, cert) => {
+    if (!latest || certSortTime(cert.date) > certSortTime(latest.date)) return cert;
+    return latest;
+  }, null)?.name;
 
   return (
     <div className="py-12 sm:py-16 md:py-20">
@@ -125,7 +147,12 @@ export default function CertificationsPage() {
               <h2 className="page-title text-lg mb-4 pb-2 border-b border-border">{group.vendor}</h2>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {group.certs.map((cert, index) => (
-                  <CertRow key={cert.name} cert={cert} index={index} />
+                  <CertRow
+                    key={cert.name}
+                    cert={cert}
+                    index={index}
+                    showNew={cert.name === newestCompletedName}
+                  />
                 ))}
               </ul>
             </section>

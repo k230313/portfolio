@@ -5,6 +5,8 @@ import { blogEssays } from '../content/blogEssays';
 
 export default function BlogPreview() {
   const posts = blogEssays.slice(0, 3);
+  // Newest essay is always first in blogEssays — NEW follows that post only.
+  const newestSlug = blogEssays[0]?.slug;
 
   return (
     <HomeSection id="blog">
@@ -21,6 +23,11 @@ export default function BlogPreview() {
           <li key={post.slug}>
             <Link to={`/blog/${post.slug}`} className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5 group">
               <span className="page-title text-base group-hover:text-primary">{post.title}</span>
+              {post.slug === newestSlug ? (
+                <span className="text-[0.65rem] font-semibold uppercase tracking-wide text-red-600 dark:text-red-400">
+                  New
+                </span>
+              ) : null}
               <time dateTime={post.date} className="meta">
                 {post.displayDate}
               </time>

@@ -1,11 +1,15 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router';
 import PageHeader from '../components/PageHeader';
-import { getWriteupsByCategory } from '../content/siteContent';
+import { allWriteups, getWriteupsByCategory } from '../content/siteContent';
 
 export default function WriteupsPage() {
   const groups = getWriteupsByCategory();
   let itemIndex = 0;
+  const newestSlug = allWriteups.reduce<(typeof allWriteups)[number] | null>((latest, post) => {
+    if (!latest || post.date > latest.date) return post;
+    return latest;
+  }, null)?.slug;
 
   return (
     <div className="min-h-screen py-16 sm:py-24">
@@ -43,7 +47,14 @@ export default function WriteupsPage() {
                         to={`/labs/${post.slug}`}
                         className="group flex items-baseline justify-between gap-4"
                       >
-                        <span className="text-primary group-hover:underline">{post.title}</span>
+                        <span className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5 min-w-0">
+                          <span className="text-primary group-hover:underline">{post.title}</span>
+                          {post.slug === newestSlug ? (
+                            <span className="text-[0.65rem] font-semibold uppercase tracking-wide text-red-600 dark:text-red-400">
+                              New
+                            </span>
+                          ) : null}
+                        </span>
                         <time
                           dateTime={post.date}
                           className="shrink-0 text-sm text-muted-foreground"

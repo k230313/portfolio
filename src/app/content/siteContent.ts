@@ -161,7 +161,7 @@ export const aboutSkillCards = [
   {
     title: 'Self-Hosting & Labs',
     description:
-      'Ubuntu, Apache, Tailscale, Proxmox — hands-on homelab infrastructure and deployment practice',
+      'Ubuntu, Apache, Tailscale, Proxmox, Splunk — hands-on homelab infrastructure, hosting, and log monitoring practice',
   },
 ];
 
@@ -372,16 +372,27 @@ export const projects: ProjectItem[] = [
   {
     slug: 'home-lab',
     title: 'Self-Hosted Home Server',
-    subtitle: 'Ubuntu/Apache multi-site hosting with secure remote access',
+    subtitle: 'Ubuntu/Apache multi-site hosting with Splunk monitoring and secure remote access',
     description:
-      'Self-hosted Ubuntu/Apache server managing multiple live domains — portfolio, real estate, and capstone app — administered remotely over Tailscale SSH.',
+      'Self-hosted Ubuntu/Apache server managing multiple live domains — portfolio, real estate, and capstone app — with Splunk collecting Apache logs from the web host, administered remotely over Tailscale SSH.',
     featured: true,
     featuredOnHome: true,
     status: 'ongoing',
     date: '2025',
     duration: '2025 - Present',
     readingTime: '5 min read',
-    tech: ['Ubuntu', 'Apache', 'Tailscale', 'SSH', 'DNS', 'VirtualBox', 'Windows Server', 'Active Directory'],
+    tech: [
+      'Ubuntu',
+      'Apache',
+      'Splunk',
+      'Tailscale',
+      'SSH',
+      'DNS',
+      'Proxmox',
+      'VirtualBox',
+      'Windows Server',
+      'Active Directory',
+    ],
     coverImage: '/images/g3.jpg',
     links: {
       demo: 'https://adamsonb.com',
@@ -389,16 +400,17 @@ export const projects: ProjectItem[] = [
     },
     summary: {
       problem:
-        'I needed real-world deployment practice and a cheaper way to host multiple sites without relying only on shared hosting.',
+        'I needed real-world deployment practice and a cheaper way to host multiple sites without relying only on shared hosting — plus a way to practice log monitoring on traffic I actually control.',
       solution:
-        'Built a self-hosted Ubuntu/Apache environment that serves live domains and supports remote administration via SSH over Tailscale, alongside Windows Server and networking labs.',
+        'Built a self-hosted Ubuntu/Apache environment that serves live domains over Tailscale SSH, alongside Windows Server labs and a Splunk VM that receives Apache logs from the web server via Universal Forwarder.',
       outcome:
-        'Hosts my portfolio, a real estate site, and ceda.online, while doubling as a learning platform for infrastructure and network support skills.',
+        'Hosts my portfolio, a real estate site, and ceda.online, while doubling as a learning platform for infrastructure, support skills, and SIEM-style log search.',
     },
     detailBody: [
       'This project is my long-running infrastructure practice environment. It combines production-style hosting with lab work so I can learn by deploying and maintaining real services.',
       'Live sites on the server include my portfolio, a client real estate site, and my capstone campus event app at ceda.online.',
-      'The attached blog series documents Windows Server, Active Directory, and related lab milestones so each stage can be reproduced later.',
+      'A separate Splunk VM on the same LAN receives Apache access logs from ambwebserver (adamsonb.com) through Splunk Universal Forwarder — so site traffic is searchable as part of the same homelab, not only sample data.',
+      'The attached lab series documents Windows Server, Active Directory, Splunk stages, and related milestones so each step can be reproduced later.',
     ],
     screenshots: [
       {
@@ -429,8 +441,24 @@ export const projects: ProjectItem[] = [
         src: '/images/AD-DS/17.png',
         alt: 'Active Directory installed',
       },
+      {
+        id: 5,
+        title: 'Splunk Apache Log Search',
+        description: 'adamsonb.com access events forwarded from the web server into Splunk.',
+        src: '/images/Splunk/Stage02/09-search-results.png',
+        alt: 'Splunk search results for adamsonb Apache access logs',
+      },
     ],
-    relatedBlogSlugs: ['homelab-setup', 'winserver', 'win10', 'ad_ds', 'manage_users'],
+    relatedBlogSlugs: [
+      'homelab-setup',
+      'winserver',
+      'win10',
+      'ad_ds',
+      'manage_users',
+      'splunk-stage-01',
+      'splunk-stage-02',
+      'splunk-commands',
+    ],
   },
   {
     slug: 'campus-event-discovery-app',
@@ -618,7 +646,7 @@ export const writeupCategories: WriteupCategory[] = [
   },
   {
     title: 'Splunk',
-    slugs: ['splunk-stage-01'],
+    slugs: ['splunk-stage-01', 'splunk-stage-02', 'splunk-commands'],
   },
   {
     title: 'Windows Client',
